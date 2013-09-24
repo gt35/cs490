@@ -11,11 +11,14 @@ body {
 }
 
 .content2 {
-	color:#CCC;
-	font-family:Verdana, Geneva, sans-serif;
+	color: #CCC;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: right;
 }
 
 form2 {
 	padding-top:10px;
 	
+}.container .content2 table tr td strong {
+	font-size: 12px;
 }

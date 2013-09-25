@@ -35,14 +35,36 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //execute post
 $result = curl_exec($ch);
 
-if (strpos($result,'Object moved') !== false) {
-    echo 'authenticated';
-	}
-else
-	echo 'not authenticated' ;
-
 //close connection
 curl_close($ch);
+
+if (strpos($result,'Object moved') !== false) 
+	{
+    //echo 'authenticated';
+	$welcomeURL = 'http://web.njit.edu/~ac422/cs490/welcome.html';
+	//open connection
+	$ch = curl_init();
+	//set the url
+	curl_setopt($ch,CURLOPT_URL, $welcomeURL);
+	curl_exec($ch);
+	//close connection
+	curl_close($ch);
+	
+	}
+else
+{
+	//echo 'not authenticated' 
+	$failURL = 'http://web.njit.edu/~ac422/cs490/authfail.html';
+	//open connection
+	$ch = curl_init();
+	//set the url
+	curl_setopt($ch,CURLOPT_URL, $failURL);
+	curl_exec($ch);
+	//close connection
+	curl_close($ch);
+}
+
+
 
 ?>
 

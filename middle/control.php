@@ -5,6 +5,8 @@
 	$functionCall = false;
 	$auth = false;
 	$data = $_POST;
+	//include ('moodleauth2.php');
+	//include ('return.php');
 	//include('triggers.php');
-	include('login_control.php');
+	//include('login_control.php');
 ?>		

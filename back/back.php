@@ -19,4 +19,14 @@
 		AND c.crn = e.crn";
 		return array('classes' => getElements($q));
 	}
+	//$u = "gt35";
+	if(isset($_GET['f'])){
+		$f = $_GET['f'];
+		$u = $_POST['username'];
+		if($f == 'getCourses'){	
+		echo json_encode(getCourses($u));
+		}
+	// else echo 'did not recieve data <br>';
+	// echo 'this is the function passed '.$_GET['f'];
+	}
 ?>

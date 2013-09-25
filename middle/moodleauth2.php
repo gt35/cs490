@@ -46,6 +46,14 @@ if (strpos($result,'Object moved') !== false)
 	$ch = curl_init();
 	//set the url
 	curl_setopt($ch,CURLOPT_URL, $welcomeURL);
+	
+	$fields = array(
+						'username' => urlencode($username)
+				);
+				
+	curl_setopt($ch,CURLOPT_POST, count($fields));
+	curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+				
 	curl_exec($ch);
 	//close connection
 	curl_close($ch);

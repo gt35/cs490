@@ -10,23 +10,33 @@
 		}
 		return $a;
 	}
+	function runQuery($q){
+		$con = new mysqli(db_host, db_user, db_pass, db_name); 
+		$result = $con->query($q);
+		if($result){
+			return $result;
+		}
+	}
 	function getCourses($ucid){
-		$q = "SELECT c.name, e.crn
+		$q = "SELECT c.name, c.fullName, e.crn
 		FROM  courses c, users u
 		INNER JOIN enrolled e
 		ON u.ucid = e.ucid
 		WHERE u.ucid = '".$ucid."'
 		AND c.crn = e.crn";
-		return array('classes' => getElements($q));
+		$result = runQuery($q);
+		return $result;
 	}
-	//$u = "gt35";
 	if(isset($_GET['f'])){
 		$f = $_GET['f'];
 		$u = $_POST['username'];
 		if($f == 'getCourses'){	
-		echo json_encode(getCourses($u));
+			$result = getCourses($u);
+			while($row = mysqli_fetch_assoc($result)){
+				$c[] = $row;
+			}
+			$classes = array('classes'=>$c);
+			echo json_encode($classes);
 		}
-	// else echo 'did not recieve data <br>';
-	// echo 'this is the function passed '.$_GET['f'];
 	}
 ?>

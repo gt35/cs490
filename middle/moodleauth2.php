@@ -1,8 +1,12 @@
 <?php
+	//this file must be on njit afs to work, does not work locally
 	include('../resources/header.php');
+	//$urlPath = $gt35;//override url path value for class
 	function getJSON($value,$postval,$urlPath){
+		
 		$url = $urlPath.'/back/back.php?f='.$value;
 		$postdata = $postval;
+		
 		$c = curl_init();
 		curl_setopt($c, CURLOPT_FOLLOWLOCATION,true);
 		curl_setopt($c, CURLOPT_HTTPHEADER, array('Content-Type' => 'application/xml'));
@@ -14,6 +18,8 @@
 		$result = curl_exec ($c); 
 		if(!$result){
 			echo 'no result <br>';
+			echo $url.'<br>';
+			print_r($postval);
 		}
 		curl_close ($c);
 		return $result;
@@ -37,6 +43,7 @@
 	);
 	
 	//url-ify the data for the POST
+	//$fields_string ='';
 	foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
 	rtrim($fields_string, '&');
 	
@@ -60,9 +67,9 @@
 	{
 		$value = "getCourses";
 		$postval = array('username'=> $_POST['username']);
-		$data = getJSON($value,$postval,$urlPath);
+		$data = getJSON($value,$postval,$gt35);
 		//echo 'authenticated';
-		$welcomeURL = $urlPath.'/welcome.html';
+		$welcomeURL = $ac422.'/front/welcome.php';
 		//open connection
 		$ch = curl_init();
 		//set the url
@@ -72,8 +79,8 @@
 		'username' => urlencode($username), 'data' => $data
 		);
 		
-		curl_setopt($ch,CURLOPT_POST, count($fields));
-		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+		curl_setopt($ch,CURLOPT_POST, true);
+		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields);
 		
 		curl_exec($ch);
 		//close connection
@@ -83,7 +90,7 @@
 	else
 	{
 		//echo 'not authenticated' 
-		$failURL = $urlPath.'/authfail.html';
+		$failURL = $ac422.'/front/authfail.html';
 		//open connection
 		$ch = curl_init();
 		//set the url

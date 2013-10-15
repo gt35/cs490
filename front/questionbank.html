@@ -146,16 +146,22 @@ for(var key in JSONOBJECT.questions){
 
 
  	var text = JSONOBJECT.questions[key].text;
+
  	document.write("<input type='checkbox' name= " + id + ">");
- 	 	document.write(text + "<br>");
+ 	document.write(id + ". " + text + "<br>");
+ 	document.write(text + "<br>");
  	var a = JSONOBJECT.questions[key].a;
- 	document.write(a + "<br>");
+ 	document.write(a);
+ 	document.write("a" + ". <br>");
  	var b = JSONOBJECT.questions[key].b;
- 	document.write(b + "<br>");
+ 	document.write(b);
+ 	document.write("b" + ". <br>");
  	var c = JSONOBJECT.questions[key].c;
  	document.write(c + "<br>");
+ 	document.write("c" + ". ");
  	var d = JSONOBJECT.questions[key].d;
  	document.write(d + "<br><br>");
+ 	document.write("d" + ". ");
 }
 
 

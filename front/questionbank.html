@@ -93,7 +93,78 @@ Welcome to the Question Bank, Professor!
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
-<div id = questionbank; style="padding-top:180px; width:100%; margin: 0 auto;" > This is where the question bank would be located. The div is titled "questionbank"  </div>
+<div id = questionbank; style="padding-top:180px; padding-left:30px; width:100%; margin: 0 auto;" > 
+
+<script>
+
+var JSONOBJECT = {
+				"questions" : [{
+				"id" : "1",
+				"text" : "test",
+				"a" : "a",
+				"b" : "b",
+				"c" : "c",
+				"d" : "d",
+				"ans" : "d",
+				"weight" : "10"
+				}, {
+				"id" : "3",
+				"text" : "adfjds",
+				"a" : "df",
+				"b" : "q",
+				"c" : "dfsf",
+				"d" : "dsfs",
+				"ans" : "d",
+				"weight" : "1"
+				}, {
+				"id" : "5",
+				"text" : "test2",
+				"a" : "lol",
+				"b" : "lel",
+				"c" : "lmao",
+				"d" : "wat",
+				"ans" : "d",
+				"weight" : "10"
+				}, {
+				"id" : "6",
+				"text" : "what is java",
+				"a" : "coffee",
+				"b" : "bean",
+				"c" : "programming language",
+				"d" : "all of the above",
+				"ans" : "d",
+				"weight" : "10"
+				}
+				]
+}
+
+document.write("<form action='test.php' method='post' name='form1' class='submitquestions'>");
+
+for(var key in JSONOBJECT.questions){
+
+	var id = JSONOBJECT.questions[key].id;
+
+
+ 	var text = JSONOBJECT.questions[key].text;
+ 	document.write("<input type='checkbox' name= " + id + ">");
+ 	 	document.write(text + "<br>");
+ 	var a = JSONOBJECT.questions[key].a;
+ 	document.write(a + "<br>");
+ 	var b = JSONOBJECT.questions[key].b;
+ 	document.write(b + "<br>");
+ 	var c = JSONOBJECT.questions[key].c;
+ 	document.write(c + "<br>");
+ 	var d = JSONOBJECT.questions[key].d;
+ 	document.write(d + "<br><br>");
+}
+
+
+document.write("<input type='submit' name='submit2' value='Submit Questions'> </form> <br><br><br><br><br><br><br>");
+
+</script>
+
+
+</div>
 <div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
 
 </div>

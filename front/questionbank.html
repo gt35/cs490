@@ -10,6 +10,12 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 </script>
 <script type="text/javascript" src="style.css"></script>
 <style type="text/css">
+
+#wrapper #login{
+	padding-top: 0px;
+	margin-top: 0px;
+
+}
 .button {
 	background-color: #78C659;
 	list-style-position: outside;
@@ -42,7 +48,14 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	font-weight: bold;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	position: fixed;
+	width: 100%;
+	margin-top: 0px;
+	margin-left: 0px;
 }
+
+
+
 #wrapper #footer {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
@@ -51,10 +64,11 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	background-color: #78C659;
 	position: fixed;
 	bottom: 0px;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
+	margin-bottom: 0px;
+	padding-bottom: 19px;
 	margin-top: 10px;
 	padding-top: 10px;
+	margin-left: 0px;
 	width: 100%;
 }
 #login .login center #username3 {
@@ -93,8 +107,8 @@ Welcome to the Question Bank, Professor!
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
-<div id = questionbank; style="padding-top:50px; padding-left:30px; width:100%; margin: 0 auto;" > 
-
+<div id = questionbank; style="padding-top:50px;  padding-left:60px; width:100%; margin: 0 auto;" > 
+<p> Please select from the following questions: </p>
 <script>
 
 var JSONOBJECT = {
@@ -148,24 +162,26 @@ for(var key in JSONOBJECT.questions){
  	var text = JSONOBJECT.questions[key].text;
 
  	document.write("<input type='checkbox' name= " + id + ">");
- 	document.write(id + ". " + text + "<br>");
- 	document.write(text + "<br>");
+ 	document.write(id + ". " + text + "<br>");		//all the questions
  	var a = JSONOBJECT.questions[key].a;
- 	document.write(a);
- 	document.write("a" + ". <br>");
+ 	document.write("a" + ". ");						//gives the "a. " before each answer for a
+ 	document.write(a + "<br>");
+
  	var b = JSONOBJECT.questions[key].b;
- 	document.write(b);
- 	document.write("b" + ". <br>");
+ 	document.write("b" + ". ");						//gives the "b. " before each answer for b
+ 	document.write(b + "<br>");
+
  	var c = JSONOBJECT.questions[key].c;
+ 	document.write("c" + ". ");						//gives the "c. " before each answer for c
  	document.write(c + "<br>");
- 	document.write("c" + ". ");
+
  	var d = JSONOBJECT.questions[key].d;
+ 	document.write("d" + ". ");						//gives the "d. " before each answer for d
  	document.write(d + "<br><br>");
- 	document.write("d" + ". ");
 }
 
 
-document.write("<input type='submit' name='submit2' value='Submit Questions'> </form> <br><br><br><br><br><br><br>");
+document.write("<input type='submit' name='submit2' value='Submit Questions'> </form> <br><br><br><br><br>");
 
 </script>
 

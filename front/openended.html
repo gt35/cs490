@@ -35,6 +35,9 @@
 	font-weight: bold;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	position: fixed;
+	width: 100%;
+	margin-top: 0px;
 }
 #wrapper #footer {
 	font-family: Arial, Helvetica, sans-serif;
@@ -44,9 +47,9 @@
 	background-color: #78C659;
 	position: fixed;
 	bottom: 0px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 	padding-bottom: 10px;
-	margin-top: 10px;
+	margin-top: 0px;
 	padding-top: 10px;
 	width: 100%;
 }
@@ -114,6 +117,48 @@
 	color: #069;
 }
 
+.input {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #069;
+	padding-top: 5px;
+	-ms-transition: all;
+	-o-transition: all;
+	border: 1px solid #78C659;
+	margin-top: 15px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+.input {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #069;
+}
+
+.output {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #069;
+	padding-top: 5px;
+	-ms-transition: all;
+	-o-transition: all;
+	border: 1px solid #78C659;
+	margin-top: 15px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+.output {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #069;
+}
+
 
 </style>
 </head>
@@ -129,7 +174,7 @@ Welcome, Professor! Please enter an open ended question to add to the question b
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
-<div id = questionbank; style="padding-top:180px; width:100%; margin: 0 auto;" >
+<div id = questionbank; style="padding-top:100px; width:100%; margin: 0 auto;" >
 	<center>
       <table border="0">
       <tr>
@@ -140,8 +185,10 @@ Welcome, Professor! Please enter an open ended question to add to the question b
           <label for="insertquestionbox"></label>
           <textarea name="insertquestionbox" cols="100" rows="6" class="insertquestionbox" id="insertquestionbox"></textarea><br>
           <textarea name="methodSignature" cols="100" rows="4" class="methodSignature" id="methodSignature"></textarea><br>
+          <textarea name="input" cols="100" rows="4" class="input" id="input"></textarea><br>
+          <textarea name="output" cols="100" rows="4" class="output" id="output"></textarea><br>
 
-          <input name="submit" type="submit" class="button" id="submit" value="Submit Question">
+          <input name="submit" type="submit" class="button" id="submit" value="Submit Question"><br><br><br><br>
         </form></td>
       </tr>
     </table>

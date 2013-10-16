@@ -184,9 +184,9 @@ Welcome, Professor! Please enter an open ended question to add to the question b
         <td><form name="form1" method="post" action="">
           <label for="insertquestionbox"></label>
           <textarea name="insertquestionbox" cols="100" rows="8" class="insertquestionbox" id="insertquestionbox"></textarea><br>
-          <textarea name="methodSignature" cols="100" rows="5" class="methodSignature" id="methodSignature"></textarea><br>
-          <textarea name="input" cols="100" rows="5" class="input" id="input"></textarea><br>
-          <textarea name="output" cols="100" rows="5" class="output" id="output"></textarea><br>
+          <textarea name="methodSignature" cols="100" rows="5" class="methodSignature" id="methodSignature">Method Signature</textarea><br>
+          <textarea name="input" cols="100" rows="5" class="input" id="input">Input</textarea><br>
+          <textarea name="output" cols="100" rows="5" class="output" id="output">Output</textarea><br>
 
           <input name="submit" type="submit" class="button" id="submit" value="Submit Question"><br><br><br><br>
         </form></td>

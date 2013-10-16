@@ -40,6 +40,8 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	font-size: 13px;
 	color: #FFF;
 	font-weight: bold;
+	padding-top:3px;
+	padding-bottom:3px;
 }
 #wrapper #footer {
 	font-family: Arial, Helvetica, sans-serif;
@@ -49,8 +51,8 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	background-color: #78C659;
 	position: fixed;
 	bottom: 0px;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
+	margin-bottom: 0px;
+	padding-bottom: 20px;
 	margin-top: 10px;
 	padding-top: 10px;
 	width: 100%;
@@ -77,33 +79,43 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	padding: 0px;
 	display: block;
 }
+.text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #06C;
+}
+.textbox {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	border: 1px solid #78C659;
+	padding: 5px;
+}
 </style>
 </head>
 
 <body>
 
-<div id="login">
-  <form action="" method="post" name="form1" class="login">
-  <center>
-    <label for="username3">username: </label>
-    <input type="text" name="username" id="username3">
-    <label for="password">password: </label>
-    <input type="password" name="password" id="password">
-    <input name="reset" type="submit" class="button" id="reset" value="Reset">
-<input name="submit" type="submit" class="button" id="submit" value="Submit">
-</center>
-  </form>
+<div class="login" id="login">
+
+    <center>
+    	
+        <p>Hi!</p>
+        
+    </center>
+  
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
-<div id = div1; style="padding-top:50px; width:100%; margin: 0 auto;" > This is where the question would be  </div>
+<center><div class="text" id = div1; style="padding-top:50px; width:100%; margin: 0 auto;" > This is where the question would be  </div></center>
 <div id = div2; style="padding-top:180px; width:100%; margin: 0 auto;" > 
   <form name="form2" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/compile.php">
     <label for="code"></label>
     <div align="center">
-      <textarea name="code" id="code" cols="150" rows="15"></textarea>
+      <textarea name="code" cols="150" rows="15" class="textbox" id="code"></textarea>
       <br>
-		<input type="submit" name="submitanswer" id="submitanswer" value="Submit your Answer">
+		<input name="submitanswer" type="submit" class="button" id="submitanswer" value="Submit your Answer">
 		<br><br><br><br><br><br>
     </div>
   </form>

@@ -181,7 +181,7 @@ Welcome, Professor! Please enter an open ended question to add to the question b
         <td><p class="insertquestion">Please enter an open ended coding question for your students to be tested on:</p></td>
       </tr>
       <tr>
-        <td><form name="form1" method="post" action="">
+        <td><form name="form1" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/submitOpenEnded.php">
           <label for="insertquestionbox"></label>
           <textarea name="insertquestionbox" cols="100" rows="8" class="insertquestionbox" id="insertquestionbox"></textarea><br>
           <textarea name="methodSignature" cols="100" rows="5" class="methodSignature" id="methodSignature">Method Signature</textarea><br>

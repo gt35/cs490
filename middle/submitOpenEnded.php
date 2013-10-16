@@ -26,40 +26,16 @@ function getJSON($value,$postval,$urlPath)
 }
 
 //variables to be sent upstream
-$q1 = $_POST['q1'];
-$correctAnswer = $_POST[correctAnswer];
-$a1 = $_POST['a1'];
-$a2 = $_POST['a2'];
-$a3 = $_POST['a3'];
-$a4 = $_POST['a4'];
-// dont forget to fix this
-$weight = 10;
+$questionText = $_POST['insertquestionbox'];
+$methodSignature = $_POST['methodSignature'];
+$i1 = $_POST['input'];
+$o1 = $_POST['output'];
 
 $postval = array(
-	'text' => $q1,
-	'a' => $a1,
-	'b' => $a2,
-	'c' => $a3,
-	'd' => $a4,
-	'ans' => $correctAnswer,
-	'weight' => $weight
+	'text' => $$questionText,
+	'a' => $methodSignature,
+	'b' => $i1,
+	'c' => $o1
 	);
 
-getJSON('insertQuestion',$postval,$gt35);
-
-
-//debugging
-ini_set('display_errors',1); 
-error_reporting(E_ALL);
-//echo "Current user: ".get_current_user();
-//echo "<br>";
-
-echo "The question is $q1 <BR><BR>";
-echo "The correct answer is $correctAnswer <BR><BR>";
-echo "Choice a is $a1 <BR><BR>";
-echo "Choice b is $a2<BR><BR>";
-echo "Choice c is $a3<BR><BR>";
-echo "Choice d is $a4<BR><BR>";
-
-
-?>
+getJSON('insertOpenEnded',$postval,$gt35);

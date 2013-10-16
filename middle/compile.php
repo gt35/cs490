@@ -7,8 +7,10 @@ error_reporting(E_ALL);
 //echo getcwd();
  
 // java code method POST'ed up to me
-$methodString = $_POST['code'];
+//$methodString = $_POST['code'];
 
+// hard copy for testing
+$methodString = "public static void concat(String one, String two){System.out.println(one + two);}";
 //debugging
 echo "The method string was: $methodString <br><br>";
 
@@ -25,7 +27,7 @@ public class JavaCode \n
 {\n $methodString
     public static void main (String[] args) \n
 	{
-        concat(args[1], args[2]);
+        concat(args[0], args[1]);
     }\n
 }\n";
 
@@ -54,7 +56,7 @@ echo exec('whoami');
 echo "<br>";
 echo exec('pwd');
 echo "<br>";
-echo exec('cd write && pwd && javac JavaCode.java && java JavaCode "Lets_  |_Go"');
+echo exec('cd write && pwd && javac JavaCode.java && java JavaCode Hel lo');
 // use shell_exec to return string to variable
 
 echo "<br>";

@@ -27,6 +27,18 @@
 	//extract data from the post
 	extract($_POST);
 	
+	if($username === "teacher" and $password === "password")
+	{
+		$failURL = "http://web.njit.edu/~ac422/cs490n/front/professorWelcome.php";
+		//open connection
+		$ch = curl_init();
+		//set the url
+		curl_setopt($ch,CURLOPT_URL, $failURL);
+		curl_exec($ch);
+		//close connection
+		curl_close($ch);
+	}
+	
 	// add the extra input variables the POST request expects
 	$__VIEWSTATE = '/wEPDwUJNDIzOTY1MjU5ZGQdLVY+81xpmN0ATE7y41EHAhVaCA==';
 	$btnLogin = 'Login';
@@ -69,7 +81,7 @@
 		$postval = array('username'=> $_POST['username']);
 		$data = getJSON($value,$postval,$gt35);
 		//echo 'authenticated';
-		$welcomeURL = $ac422.'/front/welcome.php';
+		$welcomeURL = "http://web.njit.edu/~ac422/cs490n/front/studentWelcome.php";
 		//open connection
 		$ch = curl_init();
 		//set the url
@@ -90,7 +102,7 @@
 	else
 	{
 		//echo 'not authenticated' 
-		$failURL = $ac422.'/front/authfail.html';
+		$failURL = "http://web.njit.edu/~ac422/cs490n/authfail.php";
 		//open connection
 		$ch = curl_init();
 		//set the url

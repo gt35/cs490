@@ -118,7 +118,46 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	color: #333;
 	margin-bottom: 8px;
 }
+.headers {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #06C;
+	padding: 5px;
+	border: 1px dotted #78C659;
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-bottom: 15px;
+	margin-left: 3px;
+}
+.choices {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #06C;
+	font-size: 13px;
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	margin-left: 3px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+}
+a:link {
+	text-decoration: none;
+	color: #06C;
+}
+a:visited {
+	text-decoration: none;
+	color: #03C;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
 </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
 <body>
@@ -126,7 +165,8 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 <div class="login" id="login">
   
   <center>
-<p>Welcome, Professor! You can enter questions for your question bank here.</p>
+<p>Welcome to learnToCode! Make sure to complete both parts of your exam. Good luck!</p>
+
 </center>
   
 </div>
@@ -135,12 +175,23 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
-        	<p> I will have links here for students to take an exam, answer open ended questions, check grades. Links will be added tonight.
-        </center>
+        	<p class="headers">Welcome! Please select what you would like to do below.</p>
+       	  <table border="0">
+              <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/takeexam.php">Take your Exam part I [Multiple choice]</a></span></td>
+              </tr>
+            <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/testing.php">Take your Exam part II [open ended]</a></span></td>
+            </tr>
+              <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/grades.php">Check your Grade</a></span></td>
+          </table><br>
+           <p class="headers">Good luck!</p>
+      </center>
         
     </div>
 
-  <div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+  <div class="login" id = "footer"> <center>Welcome to learnToCode!</center></div>
 
 </div>
 

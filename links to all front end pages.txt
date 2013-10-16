@@ -23,18 +23,33 @@ http://web.njit.edu/~ac422/cs490n/front/questionbank.php
 
 --------------------------------------------------------------------------------
 
+PROFESSOR GRADEBOOK: (for a professor to see the grades of a students exam)
+http://web.njit.edu/~ac422/cs490n/front/gradebook.php
+
+--------------------------------------------------------------------------------
+
 TAKE EXAM: (students)
 http://web.njit.edu/~ac422/cs490n/front/takeexam.php
 
 --------------------------------------------------------------------------------
 
 WRITE FUNCTIONS: (students)
-http://web.njit.edu/~ac422/cs490n/front/testing.php
+testing
 
 --------------------------------------------------------------------------------
 
 CHECK GRADES: (students)
 http://web.njit.edu/~ac422/cs490n/front/grades.php
+
+--------------------------------------------------------------------------------
+
+STUDENT WELCOME: (displayed when students log in successfully - links them to what they want to do)
+http://web.njit.edu/~ac422/cs490n/front/studentWelcome.php
+
+--------------------------------------------------------------------------------
+
+PROFESSOR WELCOME: (displayed when a professor logs in successfully - links them to what they want to do)
+http://web.njit.edu/~ac422/cs490n/front/professorWelcome.php
 
 --------------------------------------------------------------------------------
 

@@ -1,0 +1,40 @@
+SIGN IN PAGE:
+http://web.njit.edu/~ac422/cs490n/index.php
+
+--------------------------------------------------------------------------------
+
+AUTH FAIL PAGE:
+http://web.njit.edu/~ac422/cs490n/authfail.php
+
+--------------------------------------------------------------------------------
+
+ENTER OPEN ENDED QUESTION: (professor)
+http://web.njit.edu/~ac422/cs490n/front/openended.php
+
+--------------------------------------------------------------------------------
+
+ENTER MULTIPLE CHOICE: (professor)
+http://web.njit.edu/~ac422/cs490n/front/form.php
+
+--------------------------------------------------------------------------------
+
+QUESTION BANK: (professor)
+http://web.njit.edu/~ac422/cs490n/front/questionbank.php
+
+--------------------------------------------------------------------------------
+
+TAKE EXAM: (students)
+http://web.njit.edu/~ac422/cs490n/front/takeexam.php
+
+--------------------------------------------------------------------------------
+
+WRITE FUNCTIONS: (students)
+http://web.njit.edu/~ac422/cs490n/front/testing.php
+
+--------------------------------------------------------------------------------
+
+CHECK GRADES: (students)
+http://web.njit.edu/~ac422/cs490n/front/grades.php
+
+--------------------------------------------------------------------------------
+

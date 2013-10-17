@@ -6,6 +6,12 @@
 	echo '<br><hr>';
 	include('trig.php');
 ?>
+<hr>Test getStudentAnsStr:
+<form id="test1form" action="test.php?f=getStudentAnsStr" method="post">
+	<input type="text" name="username" placeholder="ucid"/>
+	<input type="text" name="quizID" placeholder="quizID"/>
+	<input type="submit" value="test" name="assntest" style="padding:5px;"/>
+</form><hr>
 <hr>Test getCourses:
 <form id="test1form" action="test.php?f=getCourses" method="post">
 	<input type="text" name="username" placeholder="ucid"/>

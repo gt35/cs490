@@ -144,7 +144,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
               <tr>
                     <td>&nbsp;</td>
                     <td><label for="enterQuestion"></label>
-                    <textarea name="enterQuestion" cols="60" rows="5" class="enterQuestion" id="enterQuestion"></textarea></td>
+                    <textarea name="q1" cols="60" rows="5" class="enterQuestion" id="enterQuestion"></textarea></td>
               </tr>
               <tr>
                     <td><input type="radio" name="correctAnswer" value="a1"></td>

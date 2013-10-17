@@ -95,51 +95,20 @@ Welcome to the Question Bank, Professor!
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 
 <div id = exam; style="padding-top:50px; width:100%; margin: 0 auto; padding-left:40px;" >
-
+<?php
+	include('../resources/header.php');
+	$url = $gt35."/back/back.php?f=gradeQuiz&quizID=1&u=".$_GET['u'];
+	
+	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";
+	$arr = array('quizID'=>$_GET['quizID']);
+	//echo back('getQuizQuestions',$arr,$gt35);
+	?>
 <script>
 
-var JSONOBJECT = {
-				"questions" : [{
-				"id" : "1",
-				"text" : "test",
-				"a" : "a",
-				"b" : "b",
-				"c" : "c",
-				"d" : "d",
-				"ans" : "d",
-				"weight" : "10"
-				}, {
-				"id" : "3",
-				"text" : "adfjds",
-				"a" : "df",
-				"b" : "q",
-				"c" : "dfsf",
-				"d" : "dsfs",
-				"ans" : "d",
-				"weight" : "1"
-				}, {
-				"id" : "5",
-				"text" : "test2",
-				"a" : "lol",
-				"b" : "lel",
-				"c" : "lmao",
-				"d" : "wat",
-				"ans" : "d",
-				"weight" : "10"
-				}, {
-				"id" : "6",
-				"text" : "what is java",
-				"a" : "coffee",
-				"b" : "bean",
-				"c" : "programming language",
-				"d" : "all of the above",
-				"ans" : "d",
-				"weight" : "10"
-				}
-				]
-}
+var JSONOBJECT = <?php 
+	echo back('getQuizQuestions',$arr,$gt35);?>;
 
-document.write("<form action='test.php' method='post' name='form1' class='submitquestions'>");
+//document.write("<form action='../back/back.php?f=convertAnsStr' method='post' name='form1' class='submitquestions'>");// echo instead
 
 for(var key in JSONOBJECT.questions){
 
@@ -158,7 +127,7 @@ for(var key in JSONOBJECT.questions){
 }
 
 
-document.write("<input type='submit' name='submit2' value='Submit your exam'> </form> <br><br><br><br><br><br><br>");
+document.write("<input type='submit' value='Submit your exam'> </form> <br><br><br><br><br><br><br>");// or just this
 
 </script>
 

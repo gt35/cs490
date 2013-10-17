@@ -1,4 +1,6 @@
 <?php
+	ini_set('display_errors',1); 
+error_reporting(E_ALL);
 	//FUNCTIONS
 	function getElements($q){
 		$a = array();//temp array to store shit
@@ -28,15 +30,45 @@
 	}
 
 	function getStudentAnsStr($quizID,$ucid){//returns student answer string for grading
-		$q = "SELECT sAns FROM submitted WHERE qid = '".$quizID."' AND ucid = '".$ucid."'";
+		$q = "SELECT ansStr FROM submitted WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
 		$result = runQuery($q);
 		$ans='';
 		if($result){
 			$row = mysqli_fetch_assoc($result);
-			$ans = $row['student_ans'];
+			$ans = $row['ansStr'];
 		}else $ans = 'no result';
 		return $ans;
 	}
+	function insertStudentAnsStr($str,$quizID,$ucid){
+		$q = "UPDATE submitted SET ansSTR = '".$str."' WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
+		runQuery($q);
+		}
+	function getGrade($ucid,$crn){
+		//get students quiz grade for class
+	}
+	function convertAnsStr($arr){
+		// converts answers to string for insertion into db
+		$ansStr='';
+		while ($x = current($arr)){
+			if(strlen($x) ==  1){
+				$ansStr.= $x;
+				}
+				next($arr);
+			}
+			return $ansStr;
+		}
+		
+	function convertQuizStr($arr){
+		$str='';
+		foreach($arr as $x){
+			if($x == 'on'){
+				$str .= key($arr).'.';
+				}
+			next($arr);
+			}
+			return $str;
+		//convert question bank stuff to string 
+		}
 	function gradeQuiz($quizID,$ucid){//returns int grade in form of total score
 		$q = getQuizQuestions($quizID);
 		$i = 0; //index
@@ -48,11 +80,11 @@
 		$possible = 0;
 		$x = substr($sAns, $i, 1);
 		$len = strlen($sAns);
-		while($x!=NULL&&$y!=NULL&&$i<$len){
+		while($x!=NULL&&$ans!=NULL&&$i<$len){
 			$x = substr($sAns, $i, 1);//student answer
 			$ans = $q[$i]['ans'];//actual answer
 			$possible += $q[$i]['weight'];
-			if($x == $y){
+			if($x == $ans){
 				$score += $q[$i]['weight'];
 			}
 			$i++;
@@ -68,7 +100,12 @@
 	function allQuestions(){
 		//function to get all questions in bank 
 		//useful for displaying question bank
-		
+		$q = "SELECT * FROM questions";
+		$result = runQuery($q);
+		while($row = mysqli_fetch_assoc($result)){
+				$c[] = $row;
+			}
+		return array('questions'=>$c);
 	}
 	
 	function saveQuiz($qIDstr){

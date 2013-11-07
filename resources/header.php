@@ -71,7 +71,7 @@
 		curl_close ($c);
 		return $result;
 	}
-		function back($value,$postval,$urlPath){//gets info from middle
+		function back($value,$postval,$urlPath){//gets info from back
 		
 		$url = $urlPath.'/back/back.php?f='.$value;
 		$postdata = $postval;

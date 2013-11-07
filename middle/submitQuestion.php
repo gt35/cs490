@@ -16,11 +16,11 @@ function getJSON($value,$postval,$urlPath)
 	curl_setopt($c, CURLOPT_POSTFIELDS,$postdata);
 	
 	$result = curl_exec ($c); 
-	if(!$result){
-		echo 'no result <br>';
-		echo $url.'<br>';
-		print_r($postval);
-	}
+	// if(!$result){
+		// echo 'no result <br>';
+		// echo $url.'<br>';
+		// print_r($postval);
+	// }
 	curl_close ($c);
 	return $result;
 }
@@ -33,7 +33,7 @@ $a2 = $_POST['a2'];
 $a3 = $_POST['a3'];
 $a4 = $_POST['a4'];
 // dont forget to fix this
-$weight = 10;
+$weight = $_POST['weight'];
 
 $postval = array(
 	'text' => $q1,
@@ -46,20 +46,20 @@ $postval = array(
 	);
 
 getJSON('insertQuestion',$postval,$gt35);
-
-
+echo 'question saved';
+header('Location: http://web.njit.edu/~gt35/cs490/front/form.php');
 //debugging
-ini_set('display_errors',1); 
-error_reporting(E_ALL);
+// ini_set('display_errors',1); 
+// error_reporting(E_ALL);
 //echo "Current user: ".get_current_user();
 //echo "<br>";
 
-echo "The question is $q1 <BR><BR>";
-echo "The correct answer is $correctAnswer <BR><BR>";
-echo "Choice a is $a1 <BR><BR>";
-echo "Choice b is $a2<BR><BR>";
-echo "Choice c is $a3<BR><BR>";
-echo "Choice d is $a4<BR><BR>";
+// echo "The question is $q1 <BR><BR>";
+// echo "The correct answer is $correctAnswer <BR><BR>";
+// echo "Choice a is $a1 <BR><BR>";
+// echo "Choice b is $a2<BR><BR>";
+// echo "Choice c is $a3<BR><BR>";
+// echo "Choice d is $a4<BR><BR>";
 
 
 ?>

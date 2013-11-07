@@ -1,6 +1,6 @@
 <?php
 	ini_set('display_errors',1); 
-error_reporting(E_ALL);
+	error_reporting(E_ALL);
 	//FUNCTIONS
 	function getElements($q){
 		$a = array();//temp array to store shit
@@ -28,7 +28,7 @@ error_reporting(E_ALL);
 		'".$ans."','".$weight."')";
 		runQuery($q);
 	}
-
+	
 	function getStudentAnsStr($quizID,$ucid){//returns student answer string for grading
 		$q = "SELECT ansStr FROM submitted WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
 		$result = runQuery($q);
@@ -42,7 +42,7 @@ error_reporting(E_ALL);
 	function insertStudentAnsStr($str,$quizID,$ucid){
 		$q = "UPDATE submitted SET ansSTR = '".$str."' WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
 		runQuery($q);
-		}
+	}
 	function getGrade($ucid,$crn){
 		//get students quiz grade for class
 	}
@@ -52,23 +52,23 @@ error_reporting(E_ALL);
 		while ($x = current($arr)){
 			if(strlen($x) ==  1){
 				$ansStr.= $x;
-				}
-				next($arr);
 			}
-			return $ansStr;
+			next($arr);
 		}
-		
+		return $ansStr;
+	}
+	
 	function convertQuizStr($arr){
 		$str='';
 		foreach($arr as $x){
 			if($x == 'on'){
 				$str .= key($arr).'.';
-				}
-			next($arr);
 			}
-			return $str;
-		//convert question bank stuff to string 
+			next($arr);
 		}
+		return $str;
+		//convert question bank stuff to string 
+	}
 	function gradeQuiz($quizID,$ucid){//returns int grade in form of total score
 		$q = getQuizQuestions($quizID);
 		$i = 0; //index
@@ -88,7 +88,22 @@ error_reporting(E_ALL);
 				$score += $q[$i]['weight'];
 			}
 			$i++;
-		}return ($score/$possible)*100;
+		}
+		$grade = ($score/$possible)*100;
+		insertGrade($ucid,$quizID,$grade);
+	}
+	
+	function insertGrade($ucid,$quizID,$grade){
+		$q = "UPDATE submitted SET grade = '".$grade."' 
+		WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
+		runQuery($q);
+	}//insert grade into db
+	
+	function getQuizzes($crn){//return quiz name for a particular class
+	}
+	function getEnrolled($crn){//get all student enrolled in a class
+	}
+	function getCorrectAns($quizID){//get all quiz answers
 	}
 	function getQuestion($qID){
 		$q = "SELECT * FROM questions
@@ -103,16 +118,18 @@ error_reporting(E_ALL);
 		$q = "SELECT * FROM questions";
 		$result = runQuery($q);
 		while($row = mysqli_fetch_assoc($result)){
-				$c[] = $row;
-			}
+			$c[] = $row;
+		}
 		return array('questions'=>$c);
-	}
-	
-	function saveQuiz($qIDstr){
+		}
+		
+		function saveQuiz($qIDstr){
 		//saves string of selected questions into db
 		//example string 1.5.7.10.22.34.100
-		$q ="INSERT INTO quizzes(qIDstr)
-		VALUES('".$qIDstr."')";
+		$q = "UPDATE quizzes SET qIDstr ='".$qIDstr."'WHERE id = 1 ";
+		//correct way
+		//$q ="INSERT INTO quizzes(qIDstr)
+		//VALUES('".$qIDstr."')";
 		runQuery($q);
 	}
 	

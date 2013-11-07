@@ -136,7 +136,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
               <table border="0">
-              <form name="submitquestion" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/submitQuestion.php">
+              <form name="submitquestion" method="post" action="http://web.njit.edu/~gt35/cs490/middle/submitQuestion.php">
               <tr>
                 <td>&nbsp;</td>
                     <td class="questionHeader">Please enter a question, followed by your choice of answers:</td>
@@ -147,19 +147,19 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
                     <textarea name="q1" cols="60" rows="5" class="enterQuestion" id="enterQuestion"></textarea></td>
               </tr>
               <tr>
-                    <td><input type="radio" name="correctAnswer" value="a1"></td>
+                    <td><input type="radio" name="correctAnswer" value="a"></td>
                     <td><input name="a1" type="text" class="textboxes" id="a1" size="40" maxlength="200"></td>
               </tr>
               <tr>
-                    <td><input type="radio" name="correctAnswer" value="a2"></td>
+                    <td><input type="radio" name="correctAnswer" value="b"></td>
                     <td><input name="a2" type="text" class="textboxes" id="a2" size="40" maxlength="200"></td>
               </tr>
               <tr>
-                    <td><input type="radio" name="correctAnswer" value="a3"></td>
+                    <td><input type="radio" name="correctAnswer" value="c"></td>
                     <td><input name="a3" type="text" class="textboxes" id="a3" size="40" maxlength="200"></td>
               </tr>
               <tr>
-                    <td><input type="radio" name="correctAnswer" value="a4"></td>
+                    <td><input type="radio" name="correctAnswer" value="d"></td>
                     <td><input name="a4" type="text" class="textboxes" id="a4" size="40" maxlength="200"></td>
               </tr>
               <tr>

@@ -181,7 +181,7 @@ a:active {
                 <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
               </tr>
             <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/openended.php">Insert open ended questions [functions]</a></span></td>
+                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
             </tr>
               <tr>
                 <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>

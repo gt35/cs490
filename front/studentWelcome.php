@@ -3,7 +3,7 @@
 	session_start();
 	$value = "getCourses";
 	$postval =array('username'=>$_GET['u']);
-	echo middle($value,$postval,$gt35);
+	//echo middle($value,$postval,$gt35);
 ?>
 <html>
 	<head>

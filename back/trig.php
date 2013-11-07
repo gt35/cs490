@@ -37,7 +37,7 @@ error_reporting(E_ALL);
 		if($f == 'saveQuiz'){
 			$x = convertQuizStr($_POST);
 			saveQuiz($x);
-			echo 'quiz saved!';
+			//echo 'quiz saved!';
 		}
 		if($f == 'getQuizQuestions'){
 			//print_r(getQuizQuestions($_POST['quizID']));

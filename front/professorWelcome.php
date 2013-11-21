@@ -1,3 +1,7 @@
+<?php 
+
+?>
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -177,8 +181,19 @@ a:active {
         <center>     
         	<p class="headers">Welcome, Professor! Please select from the options below.</p>
        	  <table border="0">
+       	  
+       	  <!--	  <tr>		-->
+
+           <!--     </span></td>	-->
+        <!--      </tr>		-->
+              
               <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/form.php">Insert Multiple choice questions</a>
+                 <select name="dropDown" class="dropDownBox" id="dropDown">
+  			  			<option>class1</option>
+              			<option>class2</option>
+             			<option>class3</option>
+                </span></td>
               </tr>
             <tr>
                 <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>

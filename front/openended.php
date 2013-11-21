@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
-<script type="text/javascript" src="style.css"></script>
+<script type="text/javascript" src="CS 490 Project Final Version/cs490/front/style.css"></script>
 <style type="text/css">
 .button {
 	background-color: #78C659;
@@ -160,6 +160,38 @@
 }
 
 
+.text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #069;
+	font-weight: bold;
+}
+.text-method {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #069;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.dropDownBox {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid #78C659;
+	margin-right: 10px;
+}
+.boxes {
+	color: #069;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	border: 1px solid #78C659;
+	margin-right: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 </style>
 </head>
 
@@ -182,13 +214,33 @@ Welcome, Professor! Please enter an open ended question to add to the question b
       </tr>
       <tr>
         <td><form name="form1" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/submitOpenEnded.php">
-          <label for="insertquestionbox"></label>
-          <textarea name="insertquestionbox" cols="100" rows="8" class="insertquestionbox" id="insertquestionbox"></textarea><br>
-          <textarea name="methodSignature" cols="100" rows="5" class="methodSignature" id="methodSignature">Method Signature</textarea><br>
-          <textarea name="input" cols="100" rows="5" class="input" id="input">Input</textarea><br>
-          <textarea name="output" cols="100" rows="5" class="output" id="output">Output</textarea><br>
-
-          <input name="submit" type="submit" class="button" id="submit" value="Submit Question"><br><br><br><br>
+          <p>
+            <label for="insertquestionbox"></label>
+            <textarea name="insertquestionbox" cols="100" rows="8" class="insertquestionbox" id="insertquestionbox"></textarea>
+            <br>
+            <textarea name="input" cols="100" rows="5" class="input" id="input">Input</textarea>
+            <br>
+            <textarea name="output" cols="100" rows="5" class="output" id="output">Output</textarea>
+            <br>
+            <br>
+            <span class="text">Method Signature: </span></p>
+          <p><span class="text-method">Public Static</span>
+<select name="dropDown" class="dropDownBox" id="dropDown">
+  			  <option>int</option>
+              <option>double</option>
+              <option>string</option>
+              <option>boolean</option>
+              <option>char</option>
+          </select>
+          <label for="nameOfMethod"></label>
+          <input name="nameOfMethod" type="text" class="boxes" id="nameOfMethod" value="name of the method" size="32">
+          <label for="arguments"></label>
+          <input name="arguments" type="text" class="boxes" id="arguments" value="comma seperated arguments" size="32">
+          </p>
+          <p>
+            <input name="submit" type="submit" class="button" id="submit" value="Submit Question">
+            <br><br><br><br>
+          </p>
         </form></td>
       </tr>
     </table>

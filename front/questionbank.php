@@ -131,6 +131,7 @@ for(var key in JSONOBJECT.questions){
 
  	document.write("<input type='checkbox' name= " + id + ">");
  	document.write(id + ". " + text + "<br>");		//all the questions
+ 	
  	var a = JSONOBJECT.questions[key].a;
  	document.write("a" + ". ");						//gives the "a. " before each answer for a
  	document.write(a + "<br>");

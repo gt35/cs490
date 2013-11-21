@@ -177,6 +177,16 @@ a:active {
         <center>     
         	<p class="headers">Welcome, Professor! Please select from the options below.</p>
        	  <table border="0">
+       	  
+       	  	  <tr>
+                <td><p>What class would you like to add questions for?</p>
+                		<select name="dropDown" class="dropDownBox" id="dropDown">
+  			  			<option>class1</option>
+              			<option>class2</option>
+             			<option>class3</option>
+                </span></td>
+              </tr>
+              
               <tr>
                 <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
               </tr>

@@ -1,5 +1,11 @@
 <?php 
+include("../resources/header.php");
 
+$id = "teacher";
+$url = "http://web.njit.edu/~gt53/cs490/back/back.php?f=getCourses"
+$jsonClassObject = back("getCourses",$id,$gt35);
+
+$crn = $_POST['dropDown'];
 ?>
 
 <html>
@@ -190,9 +196,22 @@ a:active {
               <tr>
                 <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/form.php">Insert Multiple choice questions</a>
                  <select name="dropDown" class="dropDownBox" id="dropDown">
-  			  			<option>class1</option>
-              			<option>class2</option>
-             			<option>class3</option>
+  			  			<!-- <option>class1</option> -->
+              			<script>
+						var classListObject = <?php echo $jsonClassObject;?>;
+						var check = 0;
+						for(var key in classListObject.classes)
+						{
+							check = 1;
+							var name = classListObject.classes[key].name;
+							var crn = classListObject.classes[key].crn;
+							document.write("<option value='" + crn +  "' >" + name + "</option>");
+						}
+						if(check)
+						{
+							document.write("<input type='submit' value='Submit'> </form> <br><br>");
+						}
+						</script>
                 </span></td>
               </tr>
             <tr>

@@ -27,15 +27,19 @@ function getJSON($value,$postval,$urlPath)
 
 //variables to be sent upstream
 $questionText = $_POST['insertquestionbox'];
-$methodSignature = $_POST['methodSignature'];
-$i1 = $_POST['input'];
-$o1 = $_POST['output'];
+$input = $_POST['input'];
+$output = $_POST['output'];
+$type = $_POST['dropDown'];
+$name = $_POST['nameOfMethod'];
+$arguments = $_POST['arguments];
 
 $postval = array(
 	'text' => $$questionText,
-	'a' => $methodSignature,
-	'b' => $i1,
-	'c' => $o1
+	'input' => $input,
+	'output' => $output,
+	'type' => $type,
+	'name' => $name,
+	'arguments' => $arguments
 	);
 
 getJSON('insertOpenEnded',$postval,$gt35);

@@ -24,7 +24,7 @@ echo "The name of the file was: $file <br><br> ";
 //what I want to actually write to file
 $fileContent = "\n 
 public class JavaCode \n
-{\n $methodString
+{\n public static $type $name ( $csv ){ $methodBody }
     public static void main (String[] args) \n
 	{
         concat(args[0], args[1]);

@@ -31,10 +31,12 @@ $input = $_POST['input'];
 $output = $_POST['output'];
 $type = $_POST['dropDown'];
 $name = $_POST['nameOfMethod'];
-$arguments = $_POST['arguments];
+$arguments = $_POST['arguments'];
+
+//  the fields are id, crn,text,method,input,output,arguments
 
 $postval = array(
-	'text' => $$questionText,
+	'text' => $questionText,
 	'input' => $input,
 	'output' => $output,
 	'type' => $type,

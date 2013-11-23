@@ -1,11 +1,11 @@
-<?php 
+<?php
 include("../resources/header.php");
 
-$id = "teacher";
-$url = "http://web.njit.edu/~gt53/cs490/back/back.php?f=getCourses"
-$jsonClassObject = back("getCourses",$id,$gt35);
+$url = "http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses";
+
 
 $crn = $_POST['dropDown'];
+
 ?>
 
 <html>
@@ -178,7 +178,7 @@ a:active {
 <p>Welcome to learnToCode! Check grades, insert questions, and choose from the question bank below.</p>
 
 </center>
-  
+
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
@@ -186,55 +186,30 @@ a:active {
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
         	<p class="headers">Welcome, Professor! Please select from the options below.</p>
-       	  <table border="0">
-       	  
-<<<<<<< HEAD
-       	  <!--	  <tr>		-->
 
-           <!--     </span></td>	-->
-        <!--      </tr>		-->
-=======
-       	  	  <tr>
-                <td><p>What class would you like to add questions for?</p>
-                		<select name="dropDown" class="dropDownBox" id="dropDown">
-  			  			<option>class1</option>
-              			<option>class2</option>
-             			<option>class3</option>
-                </span></td>
-              </tr>
->>>>>>> 9d24e0c24ef9f65572c8c64146e407834f19b1a9
-              
-              <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/form.php">Insert Multiple choice questions</a>
-                 <select name="dropDown" class="dropDownBox" id="dropDown">
-  			  			<!-- <option>class1</option> -->
-              			<script>
-						var classListObject = <?php echo $jsonClassObject;?>;
-						var check = 0;
-						for(var key in classListObject.classes)
-						{
-							check = 1;
-							var name = classListObject.classes[key].name;
-							var crn = classListObject.classes[key].crn;
-							document.write("<option value='" + crn +  "' >" + name + "</option>");
+<!-- Javascript begins here -->
+
+				<script type="text/javascript">
+					var JSONObject = {"classes":[{"name":"CS490","fullName":"SOFTWARE ENGINEERING","crn":"1"},{"name":"CS435","fullName":"ADV DATA STRUCTURES","crn":"2"},{"name":"MATH346","fullName":"MATHEMATICS OF FINANCE","crn":"4"},{"name":"IT266","fullName":"GAME MOD DEVELOPMENT","crn":"3"}]};
+
+					document.write("<form action='professorWelcome2.php' method='post' name='dropDown' class='dropDown'>");		// ** MAKE SURE TO ADD FORM BEGINNING
+					document.write('<select name="dropDown" class="dropDownBox" id="dropDown">');		// the select form header
+
+						for(var key in JSONObject.classes){
+							var name = JSONObject.classes[key].name;
+							document.write("<option>" + name + "</option>");
 						}
-						if(check)
-						{
-							document.write("<input type='submit' value='Submit'> </form> <br><br>");
-						}
-						</script>
-                </span></td>
-              </tr>
-            <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
-            </tr>
-              <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
-              <tr>
-                <td class="choices"><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/gradebook.php">Check student grades</a></span></td>
-          </table>
-       	  <br>
+						var crn = JSONObject.classes[key].crn;
+					document.write("<input type='submit' value='Submit'> </form>");		// the submit button, already have closing form tag
+					
+					
+				</script>
+
+<!-- Javascript ends here -->
+
            <p class="headers">Good luck!</p>
+
+
       </center>
         
     </div>

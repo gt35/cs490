@@ -32,6 +32,7 @@ $output = $_POST['output'];
 $type = $_POST['dropDown'];
 $name = $_POST['nameOfMethod'];
 $arguments = $_POST['arguments'];
+$crn = $_POST['crn'];
 
 //  the fields are id, crn,text,method,input,output,arguments
 
@@ -41,7 +42,8 @@ $postval = array(
 	'output' => $output,
 	'type' => $type,
 	'name' => $name,
-	'arguments' => $arguments
+	'arguments' => $arguments,
+	'crn' => $crn
 	);
 
 getJSON('insertOpenEnded',$postval,$gt35);

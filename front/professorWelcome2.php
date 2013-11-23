@@ -3,7 +3,7 @@ include("../resources/header.php");
 
 $url = "http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses";
 
- $crn = $_POST['dropDown'];
+ $crn = $_POST['dropDown'];		// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
 
 ?>
 
@@ -195,32 +195,9 @@ a:active {
        	  		<script type="text/javascript">
        	  			var crnNumber;
 					var crnName = "<?php echo $crn; ?>";
-				//	document.write("the crn name is " + crnName); 
 
-					if(crnName === 'CS490'){
-						crnNumber = 1;
-					}
-
-					else if(crnName == 'CS435'){
-					crnNumber = 2;
-					}
-
-					else if(crnName == 'MATH346'){
-					crnNumber = 4;
-					}
-
-					else if(crnName == 'IT266'){
-					crnNumber = 3;
-					}
-
-					else{
-						crnNumber = 1;
-					}
-
-					document.write("<?php  $_POST['crn'] = " + crnNumber + "; ?>");		// this is supposed to assign the POST variable 'crn' to the crn Number
-
-				//	document.write(" and the crn number is " + crnNumber);
-
+					
+					document.write("<?php echo $crn ?>");
 				</script>
 
 

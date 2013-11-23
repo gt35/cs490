@@ -193,10 +193,6 @@ a:active {
        	  
 
        	  		<script type="text/javascript">
-       	  			var crnNumber;
-					var crnName = "<?php echo $crn; ?>";
-
-					
 					document.write("<?php echo $crn ?>");
 				</script>
 

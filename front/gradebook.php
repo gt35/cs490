@@ -1,3 +1,10 @@
+<?php
+
+$crn = $_POST['crn'];
+
+?>
+
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>

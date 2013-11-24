@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $crn = $_POST['DropDown'];
 
 ?> 
@@ -129,7 +129,7 @@ My Grades
 
 </div>
 
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
 
 
 </div>

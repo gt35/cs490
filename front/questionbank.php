@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -156,7 +160,7 @@ document.write("<input type='submit' value='Submit Questions'> </form> <br><br><
 
 
 </div>
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
 
 </div>
 

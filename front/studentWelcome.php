@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include('../resources/header.php');
 	session_start();
 	$value = "getCourses";
@@ -216,7 +217,7 @@
         
 		</div>
 		
-		<div class="login" id = "footer"> <center>Welcome to learnToCode!</center></div>
+		<div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
 		
 		</div>
 		

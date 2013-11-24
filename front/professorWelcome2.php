@@ -1,10 +1,11 @@
 <?php
+session_start();
 include("../resources/header.php");
 
 $url = "http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses";
 
- $crn = $_POST['dropDown'];		// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
-
+$crn = $_POST['dropDown'];		// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
+$_SESSION['crnNumber'] = $crn;
 ?>
 
 
@@ -193,20 +194,20 @@ a:active {
        	  
 
        	  		<script type="text/javascript">
-					document.write("<?php echo $crn ?>");
+					document.write("<?php echo $_SESSION['crnNumber']; ?>");
 				</script>
 
 
               <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
+                <td><span class="choices"><a href="/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
               </tr>
             <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
+                <td><span class="choices"><a href="/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
             </tr>
               <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
+                <td><span class="choices"><a href="/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
               <tr>
-                <td class="choices"><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/gradebook.php">Check student grades</a></span></td>
+                <td class="choices"><span class="choices"><a href="/cs490/front/gradebook.php">Check student grades</a></span></td>
           </table>
        	  <br>
 
@@ -220,7 +221,7 @@ a:active {
         
     </div>
 
-  <div class="login" id = "footer"> <center>Welcome to learnToCode!</center></div>
+  <div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="/cs490/front/logoutt.php">click here.</a> </center></div>
 
 </div>
 

@@ -1,10 +1,12 @@
 <?php
+session_start();
 include("../resources/header.php");
 
 $url = "http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses";
 
-
 $crn = $_POST['dropDown'];
+//$_SESSION['crnNumber'] = $crn;
+
 
 ?>
 
@@ -166,6 +168,14 @@ a:hover {
 a:active {
 	text-decoration: none;
 }
+
+#date-time {
+		font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #06C;
+	font-size: 30px;
+}
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -190,6 +200,13 @@ a:active {
 <!-- Javascript begins here -->
 
 				<script type="text/javascript">
+				document.write ('<p><span id="date-time">', new Date().toLocaleString(), '<\/span><\/p>')
+					if (document.getElementById) onload = function () {
+						setInterval ("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
+				}
+				</script>
+
+				<script type="text/javascript">
 					var JSONObject = {"classes":[{"name":"CS490","fullName":"SOFTWARE ENGINEERING","crn":"1"},{"name":"CS435","fullName":"ADV DATA STRUCTURES","crn":"2"},{"name":"MATH346","fullName":"MATHEMATICS OF FINANCE","crn":"4"},{"name":"IT266","fullName":"GAME MOD DEVELOPMENT","crn":"3"}]};
 
 					document.write("<form action='professorWelcome2.php' method='post' name='dropDown' class='dropDown'>");		// ** MAKE SURE TO ADD FORM BEGINNING
@@ -203,9 +220,7 @@ a:active {
 						}
 						var crn = JSONObject.classes[key].crn;
 
-					document.write();
 					document.write("<input type='submit' value='Submit'> </form>");		// the submit button, already have closing form tag
-					
 					
 				</script>
 
@@ -218,7 +233,7 @@ a:active {
         
     </div>
 
-  <div class="login" id = "footer"> <center>Welcome to learnToCode!</center></div>
+  <div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="/cs490/front/logoutt.php">click here.</a> </center></div>
 
 </div>
 

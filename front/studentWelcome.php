@@ -200,15 +200,15 @@
 		-->
 
 		<tr>
-		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/takeexam.php">Take your Exam part I [open ended]</a></span></td>
+		<td><span class="choices"><a href="/cs490/front/takeexam.php">Take your Exam part I [open ended]</a></span></td>
 		</tr>
 
 		<tr>
-		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
+		<td><span class="choices"><a href="/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
 		</tr>
 
 		<tr>
-		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/grades.php">Check your Grade</a></span></td>
+		<td><span class="choices"><a href="/cs490/front/grades.php">Check your Grade</a></span></td>
 		</table><br>
 		<p class="headers">Good luck!</p>
 

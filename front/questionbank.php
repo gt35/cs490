@@ -129,7 +129,7 @@ Welcome to the Question Bank, Professor!
 		$gt35 = 'http://web.njit.edu/~gt35/cs490'; //back
 		$crn = $_SESSION['crnNumber'];
 		$JSONOutput = back('allQuestions',$crn,$gt35);
-		echo $JSONOutput;
+		//echo $JSONOutput;
 	?>
 	
 	var JSONQuestions = <?php echo $JSONOutput; ?>;

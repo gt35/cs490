@@ -205,7 +205,6 @@
 		// attempted will be a session variable created when takeexam is loaded
 		if( isset($_SESSION['attempted']))
 		{
-			$_SESSION['attempted'] = 1;
 			echo "<p> You have no current exams available </p>";
 			// if you want to have some other html outputted here
 			// use echo

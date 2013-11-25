@@ -132,6 +132,8 @@ Welcome to the Question Bank, Professor!
 	?>
 	
 	var JSONQuestions = <?php echo $JSONOutput; ?>;
+	
+	document.write(JSONQuestions);
 
 
 

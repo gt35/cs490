@@ -168,6 +168,7 @@ a:hover {
 a:active {
 	text-decoration: none;
 }
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -187,27 +188,23 @@ a:active {
 
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
-        	<p class="headers">Welcome, Professor! Please select from the options below.</p>
+        	<p class="headers">Welcome, Professor! You are currently working with crn number <?php echo $_SESSION['crnNumber']; ?>  </p>
 
 
        	  <table border="0">
        	  
-
-       	  		<script type="text/javascript">
-					document.write("<?php echo $_SESSION['crnNumber']; ?>");
-				</script>
-
-
               <tr>
-                <td><span class="choices"><a href="/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
               </tr>
             <tr>
-                <td><span class="choices"><a href="/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
             </tr>
               <tr>
-                <td><span class="choices"><a href="/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
               <tr>
-                <td class="choices"><span class="choices"><a href="/cs490/front/gradebook.php">Check student grades</a></span></td>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/questionBank1.php">Visit the Open Ended Question Bank</a></span></td>
+              <tr>
+                <td class="choices"><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/gradebook.php">Check student grades</a></span></td>
           </table>
        	  <br>
 
@@ -221,7 +218,9 @@ a:active {
         
     </div>
 
-  <div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="/cs490/front/logoutt.php">click here.</a> </center></div>
+  <div class="login" id = "footer"> <center>
+ 
+  To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a> </center></div>
 
 </div>
 

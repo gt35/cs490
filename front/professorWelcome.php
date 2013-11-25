@@ -176,6 +176,10 @@ a:active {
 	font-size: 30px;
 }
 
+.imgs {
+	margin: 0px;
+	padding: 0px;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -196,8 +200,8 @@ a:active {
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
         	<p class="headers">Welcome, Professor! Please select from the options below.</p>
-
-<!-- Javascript begins here -->
+ 
+               <!-- Javascript begins here -->
 
 				<script type="text/javascript">
 				document.write ('<p><span id="date-time">', new Date().toLocaleString(), '<\/span><\/p>')
@@ -219,7 +223,6 @@ a:active {
 							document.write("<option value = " + crn + ">" + name + "</option>");
 						}
 						var crn = JSONObject.classes[key].crn;
-
 					document.write("<input type='submit' value='Submit'> </form>");		// the submit button, already have closing form tag
 					
 				</script>
@@ -233,7 +236,7 @@ a:active {
         
     </div>
 
-  <div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="/cs490/front/logoutt.php">click here.</a> </center></div>
+  <div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a> </center></div>
 
 </div>
 

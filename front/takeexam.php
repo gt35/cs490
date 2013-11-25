@@ -91,7 +91,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 <div class="login" id="login">
 
   <center>
-  	Welcome!
+  	Multiple Choice portion of the exam: You will have 3 minutes to complete this section.
   </center>
 
 </div>
@@ -140,7 +140,7 @@ document.write("<input type='submit' value='Submit your exam'> </form> <br><br><
 
 </div>
 
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
+<div class="login" id = "footer"> <center>Please complete this section and submit in order to get your multiple choice question:</center></div>
 
 </div>
 

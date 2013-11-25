@@ -201,15 +201,15 @@
 		-->
 
 		<tr>
-		<td><span class="choices"><a href="/cs490/front/takeexam.php">Take your Exam part I [open ended]</a></span></td>
+		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/takeexam.php">Take your Exam part I [open ended]</a></span></td>
 		</tr>
 
 		<tr>
-		<td><span class="choices"><a href="/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
+		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
 		</tr>
 
 		<tr>
-		<td><span class="choices"><a href="/cs490/front/grades.php">Check your Grade</a></span></td>
+		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/grades.php">Check your Grade</a></span></td>
 		</table><br>
 		<p class="headers">Good luck!</p>
 
@@ -217,7 +217,7 @@
         
 		</div>
 		
-		<div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
+		<div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a></center></div>
 		
 		</div>
 		

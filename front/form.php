@@ -142,7 +142,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
               <table border="0">
-              <form name="submitquestion" method="post" action="http://web.njit.edu/~gt35/cs490/middle/submitQuestion.php">
+              <form name="submitquestion" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/submitQuestion.php">
               <tr>
                 <td>&nbsp;</td>
                     <td class="questionHeader">Please enter a question, followed by your choice of answers:</td>
@@ -183,7 +183,14 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
         
     </div>
 
-  <div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a> </center></div>
+  <div class="login" id = "footer"> <center>
+  
+
+<a href="http://web.njit.edu/~ac422/cs490/front/professorWelcome2.php">Visit the Main Menu</a>     |
+<a href="http://web.njit.edu/~ac422/cs490/front/openended.php">Create an Open Ended Question</a>     |     
+<a href="http://web.njit.edu/~ac422/cs490/front/questionbank.php">Go to the Question Bank</a>     | 
+  
+  To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a> </center></div>
 
 </div>
 

@@ -121,7 +121,31 @@ Welcome to the Question Bank, Professor!
 	//echo back('getQuizQuestions',$arr,$gt35);
 	?>
 <script>
-
+	// okay so we want to get a JSON object, that contains all the questions in the bank for the course
+	// we are working on
+	// we are going to use the function "allQuestions"
+	// the source code, for reference is in back/func.php , line 130
+	// we call this function by using the php back function giaspur wrote
+	// the first argument is the name of the function
+	// the second is info to POST to function (if applicable)
+	// the third is a partial URL, giaspur conviently defined these in header,
+	// so if since we used the php function include() we have access to those vars
+	// the variable is just $gt35
+	// so lets call our function
+	// in this case, we know our name allQuestions
+	// its not a void function, we want to return our query based on a crn, so thats the 2nd arg
+	// and third is the usual partial URL for giaspurs code
+	<?php
+		$crn = $_SESSION['crnNumber'];
+		//back('allQuestions',$crn,$gt35);
+		// but that is in php and we want to manipulate in js
+		// so first lets assign it to a php variable
+		$JSONOutput = back('allQuestions',$crn,$gt35)
+	?>
+	// there is no fancy way to convert stuff from php to js, as far as I know
+	// so you can just echo the code to do a simple copy and paste job
+	// so this should give us a string formatted in JSON to manipulate in js to display all the course's questions
+	var JSONQuestions = <?php echo $JSONOutput ?>;
 
 //var JSONOBJECT = <?php //echo back('allQuestions',NULL,$gt35);?>;		// Giaspurs way of retrieving JSON object, wasnt working at the moment (I hard coded a json object for testing)
 	

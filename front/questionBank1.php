@@ -164,7 +164,7 @@ Welcome to the Question Bank, Professor!
 </div>
 <div class="login" id = "footer"> <center>
 
-<a href="http://web.njit.edu/~ac422/cs490/front/professorWelcome2.php">Visit the Main Menu</a>     |   
+<a href="http://web.njit.edu/~jdr22/cs490/middle/toMainMenu.php">Visit the Main Menu</a>     |   
 <a href="http://web.njit.edu/~ac422/cs490/front/questionbank.php">Go back to the Question Bank</a>     |  
 To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a></center></div>
 

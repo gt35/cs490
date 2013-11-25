@@ -1,11 +1,11 @@
 <?php
 	session_start();
 	include('../resources/header.php');
-	session_start();
 	$value = "getCourses";
 	$postval =array('username'=>$_GET['u']);
 	//echo middle($value,$postval,$gt35);
 ?>
+
 <html>
 	<head>
 		<title>Welcome to learnToCode!</title>
@@ -205,19 +205,24 @@
 		// attempted will be a session variable created when takeexam is loaded
 		if( isset($_SESSION['attempted']))
 		{
+			$_SESSION['attempted'] = 1;
+			echo "<p> You have no current exams available </p>";
 			// if you want to have some other html outputted here
 			// use echo
 		}
 		else
 		{
 			// fill out the rest of the echos
-			echo "<tr>";
-			<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/takeexam.php">Take your Exam part I [open ended]</a></span></td>
-			</tr>
 		
-			<tr>
+		
+			echo '<tr>
+			<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/takeexam.php">Take your Exam part I</a></span></td>
+			</tr>';
+			
+			echo '<tr>
 			<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
-			</tr>
+			</tr>';
+			
 		}
 		
 		?>

@@ -146,7 +146,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
   <div class="login" id = "footer"> <center>
   
-  <a href="http://web.njit.edu/~ac422/cs490/front/professorWelcome2.php">Visit the Main Menu</a>     |  
+  <a href="http://web.njit.edu/~jdr22/cs490/middle/toMainMenu.php">Visit the Main Menu</a>     |  
   <a href="http://web.njit.edu/~ac422/cs490/front/form.php">Create quiz questions</a>     |  
   
   To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a></center></div>

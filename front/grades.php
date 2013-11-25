@@ -1,3 +1,9 @@
+<?php
+session_start();
+$crn = $_POST['DropDown'];
+
+?> 
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -79,6 +85,14 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	padding: 0px;
 	display: block;
 }
+
+p {
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		color: #06C;
+		font-size: 13px;
+}
+
 </style>
 </head>
 
@@ -93,8 +107,30 @@ My Grades
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
-<div id = grade; style="padding-top:180px; width:100%; margin: 0 auto;" > This is the page where a student can come and check his/her grade.  </div>
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+
+<div id = grade; style="padding-top:180px; width:100%; margin: 0 auto;" >
+
+	<center>
+	<div id = gradeContainer>
+		<script type="text/javascript">
+
+			var JSONObject = {"grade":"0"};		<!--replace this hard coded JSONObject with the actual retrieved JSON object for grade-->
+
+			var grade = JSONObject.grade[0];
+
+			document.write("<p>Your exam grade is " + grade + "</p>");
+
+		</script>
+
+	</div>
+	</center>
+
+
+
+</div>
+
+<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
+
 
 </div>
 

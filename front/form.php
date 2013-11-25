@@ -1,3 +1,9 @@
+<?php 
+
+	session_start();
+
+?>
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -140,6 +146,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
               <tr>
                 <td>&nbsp;</td>
                     <td class="questionHeader">Please enter a question, followed by your choice of answers:</td>
+
               </tr>
               <tr>
                     <td>&nbsp;</td>
@@ -176,7 +183,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
         
     </div>
 
-  <div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+  <div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a> </center></div>
 
 </div>
 

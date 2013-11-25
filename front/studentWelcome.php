@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include('../resources/header.php');
 	session_start();
 	$value = "getCourses";
@@ -186,25 +187,37 @@
 		<p class="headers">Welcome! Please select what you would like to do below.</p>
 		<table border="0">
 		<tr>
-		<td><span class="choices">
-			<?php 
-			$url = "http://web.njit.edu/~gt35/cs490/front/takeexam.php?quizID=1&u=".$_GET['u'];
-			echo "<a href = $url>";
-			?>
+<!-- 		<td><span class="choices">
+				<?php 
+				$url = "http://web.njit.edu/~ac422/cs490/front/takeexam.php".$_GET['u'];
+				echo "<a href = $url>";
+				?>
 			Take your Exam part I [Multiple choice]</a></span></td>
-		</tr>
+		</tr> -->
+
+
+		<!--this is where you would get the json object and display the stuff
+		var x = http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses //returns a json object, so assign this to a variable and list them
+		-->
+
 		<tr>
-		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/testing.php">Take your Exam part II [open ended]</a></span></td>
+		<td><span class="choices"><a href="/cs490/front/takeexam.php">Take your Exam part I [open ended]</a></span></td>
 		</tr>
+
 		<tr>
-		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/grades.php">Check your Grade</a></span></td>
+		<td><span class="choices"><a href="/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
+		</tr>
+
+		<tr>
+		<td><span class="choices"><a href="/cs490/front/grades.php">Check your Grade</a></span></td>
 		</table><br>
 		<p class="headers">Good luck!</p>
+
 		</center>
         
 		</div>
 		
-		<div class="login" id = "footer"> <center>Welcome to learnToCode!</center></div>
+		<div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
 		
 		</div>
 		

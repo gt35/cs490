@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -131,6 +135,7 @@ for(var key in JSONOBJECT.questions){
 
  	document.write("<input type='checkbox' name= " + id + ">");
  	document.write(id + ". " + text + "<br>");		//all the questions
+ 	
  	var a = JSONOBJECT.questions[key].a;
  	document.write("a" + ". ");						//gives the "a. " before each answer for a
  	document.write(a + "<br>");
@@ -155,7 +160,7 @@ document.write("<input type='submit' value='Submit Questions'> </form> <br><br><
 
 
 </div>
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
 
 </div>
 

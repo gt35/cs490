@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -87,7 +91,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 <div class="login" id="login">
 
   <center>
-Welcome to the Question Bank, Professor!
+  	Welcome!
   </center>
 
 </div>
@@ -95,6 +99,7 @@ Welcome to the Question Bank, Professor!
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 
 <div id = exam; style="padding-top:50px; width:100%; margin: 0 auto; padding-left:40px;" >
+
 <?php
 	include('../resources/header.php');
 	$url = $gt35."/back/back.php?f=gradeQuiz&quizID=1&u=".$_GET['u'];
@@ -103,6 +108,7 @@ Welcome to the Question Bank, Professor!
 	$arr = array('quizID'=>$_GET['quizID']);
 	//echo back('getQuizQuestions',$arr,$gt35);
 	?>
+
 <script>
 
 var JSONOBJECT = <?php 
@@ -132,14 +138,9 @@ document.write("<input type='submit' value='Submit your exam'> </form> <br><br><
 </script>
 
 
-
-
-
-
-
 </div>
 
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck! To logout, please <a href="/cs490/front/logoutt.php">click here.</a></center></div>
 
 </div>
 

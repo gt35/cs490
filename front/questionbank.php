@@ -145,7 +145,7 @@ Welcome to the Question Bank, Professor!
 	// there is no fancy way to convert stuff from php to js, as far as I know
 	// so you can just echo the code to do a simple copy and paste job
 	// so this should give us a string formatted in JSON to manipulate in js to display all the course's questions
-	var JSONQuestions = <?php echo $JSONOutput ?>;
+	var JSONQuestions = <?php echo $JSONOutput; ?>;
 
 //var JSONOBJECT = <?php //echo back('allQuestions',NULL,$gt35);?>;		// Giaspurs way of retrieving JSON object, wasnt working at the moment (I hard coded a json object for testing)
 	

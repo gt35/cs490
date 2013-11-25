@@ -1,21 +1,45 @@
 <?php
 
+//debugging set vars locally
+$input = "(2,2) (1,3) (8,7)";
+$output = "4,4,15";
+$type = "int";
+$name = "add";
+$arguments = "int arg1, int arg2";
+$methodBody = "int sum = arg1 + arg2; return sum;";
 ini_set('display_errors',1); 
-error_reporting(E_ALL);
- 
-// debugging
-//echo getcwd();
- 
-// java code method POST'ed up to me
-//$methodString = $_POST['code'];
 
-// hard copy for testing
-$methodString = "public static void concat(String one, String two){System.out.println(one + two);}";
-//debugging
-echo "The method string was: $methodString <br><br>";
+error_reporting(E_ALL);
+
+// input parser
+$inputArray = explode(" ", $input );
+// print the input
+foreach($inputArray as $value)
+{
+	echo $value."<br>";
+}
+
+// output parser
+$outputArray = explode("," , $output);
+// print the output
+foreach($outputArray as $value)
+{
+	echo $value."<br>";
+}
+
+// number of cases to check
+$count = count($inputArray);
+
+// actual testing code
+$casesString = "";
+for($i = 0; $i <count($inputArray); ++$i)
+{
+		$casesString = $casesString."if( ".$name.$inputArray[$i]."!=".$outputArray[$i].'){ System.out.println("Wrong");}';
+}
+
+echo $casesString;
 
 // name of the file I want to write to
-
 $file = '/afs/cad.njit.edu/u/j/d/jdr22/public_html/cs490/middle/write/JavaCode.java';
 
 // debugging
@@ -24,10 +48,10 @@ echo "The name of the file was: $file <br><br> ";
 //what I want to actually write to file
 $fileContent = "\n 
 public class JavaCode \n
-{\n public static $type $name ( $csv ){ $methodBody }
+{\n public static $type $name ( $arguments ){ $methodBody }
     public static void main (String[] args) \n
 	{
-        concat(args[0], args[1]);
+        $casesString
     }\n
 }\n";
 
@@ -50,14 +74,23 @@ $actualFileContents = file_get_contents($file);
 echo "<br><br> $actualFileContents <br><br>";
 
 // debugging
-//echo $SHELL;
-echo "<br>";
-echo exec('whoami');
-echo "<br>";
-echo exec('pwd');
-echo "<br>";
-echo exec('cd write && pwd && javac JavaCode.java && java JavaCode Hel lo');
+//echo "<br>";
+//echo exec('whoami');
+//echo "<br>";
+//echo exec('pwd');
+//echo "<br>";
+$sample = shell_exec('cd write && pwd && javac JavaCode.java && java JavaCode');
 // use shell_exec to return string to variable
+echo $sample."<br><br>";
+
+if(strpos($sample,"Wrong") )
+{
+echo "Student got the question wrong";
+}
+else
+{
+echo "Student got the question right";
+}
 
 echo "<br>";
 //echo exec('pwd');

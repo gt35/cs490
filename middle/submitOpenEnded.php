@@ -1,5 +1,6 @@
 <?php
 $gt35 = 'http://web.njit.edu/~gt35/cs490';//back
+session_start();
 
 function getJSON($value,$postval,$urlPath)
 {
@@ -16,11 +17,11 @@ function getJSON($value,$postval,$urlPath)
 	curl_setopt($c, CURLOPT_POSTFIELDS,$postdata);
 	
 	$result = curl_exec ($c); 
-	if(!$result){
+	/*if(!$result){
 		echo 'no result <br>';
 		echo $url.'<br>';
 		print_r($postval);
-	}
+	}*/
 	curl_close ($c);
 	return $result;
 }
@@ -32,12 +33,22 @@ $output = $_POST['output'];
 $type = $_POST['dropDown'];
 $name = $_POST['nameOfMethod'];
 $arguments = $_POST['arguments'];
-$crn = $_POST['crn'];
+$crn = $_SESSION['crnNumber'];
 
-//  the fields are id, crn,text,method,input,output,arguments
+//debugging
+//echo $questionText
+//echo "<br>";
+//$input = $_POST['input'];
+//$output = $_POST['output'];
+//$type = $_POST['dropDown'];
+//$name = $_POST['nameOfMethod'];
+//$arguments = $_POST['arguments'];
+//$crn = $_POST['crn'];
 
+
+//  the fields are id, crn,questionText,method,input,output,arguments
 $postval = array(
-	'text' => $questionText,
+	'questionText' => $questionText,
 	'input' => $input,
 	'output' => $output,
 	'type' => $type,
@@ -47,3 +58,41 @@ $postval = array(
 	);
 
 getJSON('insertOpenEnded',$postval,$gt35);
+
+/*
+//set POST variables
+$url = 'http://web.njit.edu/~ac422/cs490/front/professorWelcome2.php';
+$fields = array(
+'dropDown' => urlencode($crn)
+);
+
+//url-ify the data for the POST
+//$fields_string ='';
+foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+rtrim($fields_string, '&');
+
+//open connection
+$ch = curl_init();
+
+//set the url, number of POST vars, POST data
+curl_setopt($ch,CURLOPT_URL, $url);
+curl_setopt($ch,CURLOPT_POST, count($fields));
+curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+//execute post
+$result = curl_exec($ch);
+
+//close connection
+curl_close($ch);
+*/
+?>
+<html>
+<form id="form" action="http://web.njit.edu/~ac422/cs490/front/professorWelcome2.php" method="POST">
+<input type="hidden" name="dropDown" value="<?php echo $crn ?>">
+</form>
+<script>
+document.getElementById("form").submit();
+</script>
+</html>

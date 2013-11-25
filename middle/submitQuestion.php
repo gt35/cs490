@@ -1,6 +1,6 @@
 <?php
 $gt35 = 'http://web.njit.edu/~gt35/cs490';//back
-
+session_start();
 function getJSON($value,$postval,$urlPath)
 {
 		
@@ -32,8 +32,8 @@ $a1 = $_POST['a1'];
 $a2 = $_POST['a2'];
 $a3 = $_POST['a3'];
 $a4 = $_POST['a4'];
-// dont forget to fix this
 $weight = $_POST['weight'];
+$crn = $_SESSION['crnNumber'];
 
 $postval = array(
 	'text' => $q1,
@@ -42,12 +42,13 @@ $postval = array(
 	'c' => $a3,
 	'd' => $a4,
 	'ans' => $correctAnswer,
-	'weight' => $weight
+	'weight' => $weight,
+	'crn' => $crn
 	);
 
 getJSON('insertQuestion',$postval,$gt35);
-echo 'question saved';
-header('Location: http://web.njit.edu/~gt35/cs490/front/form.php');
+/*echo 'question saved';
+header('Location: http://web.njit.edu/~gt35/cs490/front/form.php');*/
 //debugging
 // ini_set('display_errors',1); 
 // error_reporting(E_ALL);
@@ -60,6 +61,12 @@ header('Location: http://web.njit.edu/~gt35/cs490/front/form.php');
 // echo "Choice b is $a2<BR><BR>";
 // echo "Choice c is $a3<BR><BR>";
 // echo "Choice d is $a4<BR><BR>";
-
-
 ?>
+<html>
+<form id="form" action="http://web.njit.edu/~ac422/cs490/front/professorWelcome2.php" method="POST">
+<input type="hidden" name="dropDown" value="<?php echo $crn ?>">
+</form>
+<script>
+document.getElementById("form").submit();
+</script>
+</html>

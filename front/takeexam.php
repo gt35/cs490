@@ -1,5 +1,6 @@
 <?php
 session_start()
+$_SESSION['attempted'] = "yes"; // use this to kmow student has attempted exam
 ?>
 
 <html>

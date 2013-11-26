@@ -1,6 +1,7 @@
 <?php
-session_start()
+session_start();
 $_SESSION['attempted'] = "yes"; // use this to kmow student has attempted exam
+print_r($_SESSION);
 ?>
 
 <html>
@@ -101,19 +102,49 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
 <div id = exam; style="padding-top:50px; width:100%; margin: 0 auto; padding-left:40px;" >
 
+<!-- javascript code -->
+<script type="text/javascript">
+var total_seconds = 25;
+var c_minutes = parseInt(total_seconds/60);
+var c_seconds = parseInt(total_seconds%60);
+
+function CheckTime(){
+	document.getElementById("quiz-time-left").innerHTML = 'Time Left Until automatic submission: ' + c_minutes + ' minutes ' + c_seconds + ' seconds' ;
+	
+	if(total_seconds <=0){
+		setTimeout('document.form1.submit()',1); // 'quiz' being the name of the form... <form.. name='quiz'	
+	}
+	
+	else{
+		total_seconds = total_seconds -1;
+		c_minutes = parseInt(total_seconds/60);
+		c_seconds = parseInt(total_seconds%60);
+		
+		setTimeout("CheckTime()",1000);
+		
+	}
+}
+
+	setTimeout("CheckTime()",1000);
+</script>
+
+<!-- End javascript code -->
+
 <?php
 	include('../resources/header.php');
-	$url = $gt35."/back/back.php?f=gradeQuiz&quizID=1&u=".$_GET['u'];
-	
+	$url = $gt35."/back/back.php?f=gradeQuiz";
+	//$url = "test.php";
 	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";
-	$arr = array('quizID'=>$_GET['quizID']);
+	echo "<input type='hidden' name='quizID' value=".$_SESSION['quizID']."><br>";
+	echo"<input type='hidden' name='username' value=".$_SESSION['ucid']."><br>";
+	$arr = array('quizID'=>$_SESSION['quizID']);
 	//echo back('getQuizQuestions',$arr,$gt35);
 	?>
 
 <script>
-
 var JSONOBJECT = <?php 
 	echo back('getQuizQuestions',$arr,$gt35);?>;
+
 
 //document.write("<form action='../back/back.php?f=convertAnsStr' method='post' name='form1' class='submitquestions'>");// echo instead
 

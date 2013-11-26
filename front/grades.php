@@ -117,9 +117,22 @@
 				?>
 				<center>
 					<div id = gradeContainer>
+
+						<script>
+
+							//var JSONObject = <?php echo $x; ?>;
+							//var JSONAnswers	= <?php echo $y; ?>;
+							//var grade = JSONObject.grade[0];
+
+
+							//document.write("<p>Your exam grade is " + grade + "</p>");
+
+
+
+						</script>
 						<script type="text/javascript">
 							
-							var JSONObject = <?php echo $x; ?>	<!--replace this hard coded JSONObject with the actual retrieved JSON object for grade-->
+							var JSONObject = <?php echo $x; ?>;
 							var JSONAnswers	= <?php echo $y; ?>;
 							var grade = JSONObject.grade[0];
 
@@ -138,7 +151,7 @@
 								var answers = JSONAnswers.questions[key].ans;
 								
 								document.write(id + ". " + text + "<br>");		//all the questions
-								/*
+								
 								var a = JSONAnswers.questions[key].a;
 								document.write("a" + ". ");						//gives the "a. " before each answer for a
 								document.write(a + "<br>");
@@ -154,7 +167,7 @@
 								var d = JSONAnswers.questions[key].d;
 								document.write("d" + ". ");						//gives the "d. " before each answer for d
 								document.write(d + "<br>");
-								*/
+								
 								document.write("<b>CORRECT ANSWER: " + answers + "</b><br><br><br>");
 							}
 							

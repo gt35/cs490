@@ -48,8 +48,10 @@
 	
 		if (strpos($result,'Object moved') !== false) 
 		{
+			session_start();
+			$_SESSION['ucid'] = $username;
 			header('Location: http://web.njit.edu/~ac422/cs490/front/studentWelcome.php');
-			$value = "getCourses";
+			/*$value = "getCourses";
 			$postval = array('username'=> $_POST['username']);
 			$data = getJSON($value,$postval,$gt35);
 			//echo 'authenticated';
@@ -68,7 +70,7 @@
 		
 			curl_exec($ch);
 			//close connection
-			curl_close($ch);
+			curl_close($ch);*/
 			
 		}
 		else

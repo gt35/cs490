@@ -1,9 +1,12 @@
 <?php
 session_start();
+include('../resources/header.php');
+$crn = $_SESSION['crnNumber']; // need the crn to be a session var reaching this page
+//$crn = "1";
+$quizzes = back('getQuizzes',$crn,$gt35);
 //{"quizzes":[{"id":"1","crn":"1","name":"test quiz"}]}
-$quizzes = '{"quizzes":[{"id":"1","crn":"1","name":"test quiz"},{"id":"2","crn":"1","name":"test quiz2"}]}';
-//$crn = $_SESSION['crn']; // need the crn to be a session var reaching this page
-$crn = "1";
+//$quizzes = '{"quizzes":[{"id":"1","crn":"1","name":"test quiz"},{"id":"2","crn":"1","name":"test quiz2"}]}';
+
 echo $quizzes;
 
 ?>
@@ -14,7 +17,7 @@ echo $quizzes;
 	document.write(JSONQuizzes);
 	var atLeastOneQuiz = "no";
 	// start html form
-	document.write("<form action='http://web.njit.edu/~ac422/cs490/front/takeexam.php' method='POST' >");
+	document.write("<form action='http://web.njit.edu/~gt35/cs490/front/takeexam.php' method='POST' >");
 	
 	for(var key in JSONQuizzes.quizzes )
 	{

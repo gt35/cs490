@@ -1,7 +1,7 @@
 <?php
 	include('../resources/header.php');
 	session_start();
-	
+	//print_r($_SESSION);
 ?> 
 
 <html>
@@ -108,25 +108,28 @@
 		
 		<div id = "wrapper" width = 100%; style="margin: 0 auto;">
 			
-			<div id = grade; style="padding-top:180px; width:100%; margin: 0 auto;" >
+			<div id = grade; style="padding-top:60px; width:100%; margin: 0 auto;" >
 				<?php
 					$arr = array('username'=>$_SESSION['ucid'],'crn'=>$_SESSION['crnNumber'],'quizID'=>$_SESSION['quizID']);
 					$x = back('getGrades',$arr,$gt35);
-					echo $x;
-					$y = back('getQuizQuestions',$arr,$gt35);
+					//echo $x;
+					$y = back('getQuizQuestions',$arr,$gt35); 
 				?>
 				<center>
 					<div id = gradeContainer>
+
 						<script type="text/javascript">
+
 							
-							var JSONObject = <?php echo $x; ?>	<!--replace this hard coded JSONObject with the actual retrieved JSON object for grade-->
+							var JSONObject = <?php echo $x; ?>;
 							var JSONAnswers	= <?php echo $y; ?>;
-							var grade = JSONObject.grade[0];
-							
+							var grade = JSONObject.grades[0].grade;
 							document.write("<p>Your exam grade is " + grade + "</p>");
+
 							
-							for(var key in JSONAnswers.questions){//THIS DOESNT WORK, tried the echo way also 
-																//something to do with dynamic JSON objects
+						
+							for(var key in JSONAnswers.questions){
+
 								var id = JSONAnswers.questions[key].id;
 								
 								var text = JSONAnswers.questions[key].text;
@@ -154,9 +157,10 @@
 								document.write("<b>CORRECT ANSWER: " + answers + "</b><br><br><br>");
 							}
 							
-							
+
+
 						</script>
-						
+
 					</div>
 				</center>
 				

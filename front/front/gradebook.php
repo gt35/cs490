@@ -1,15 +1,3 @@
-<?php
-session_start();
-include("../resources/header.php");
-
-// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
-$_SESSION['quizID'] = $_POST['dropDown'];
-//print_r($_SESSION);
-//
-?>
-
-
-
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -130,47 +118,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	color: #333;
 	margin-bottom: 8px;
 }
-.headers {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	font-weight: bold;
-	color: #06C;
-	padding: 5px;
-	border: 1px dotted #78C659;
-	margin-top: 3px;
-	margin-right: 3px;
-	margin-bottom: 15px;
-	margin-left: 3px;
-}
-.choices {
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	color: #06C;
-	font-size: 13px;
-	margin-top: 3px;
-	margin-right: 3px;
-	margin-bottom: 3px;
-	margin-left: 3px;
-	padding-top: 3px;
-	padding-bottom: 1px;
-}
-a:link {
-	text-decoration: none;
-	color: #06C;
-}
-a:visited {
-	text-decoration: none;
-	color: #03C;
-}
-a:hover {
-	text-decoration: underline;
-}
-a:active {
-	text-decoration: none;
-}
-
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
 <body>
@@ -178,42 +126,21 @@ a:active {
 <div class="login" id="login">
   
   <center>
-<p>Welcome to learnToCode! Check grades, insert questions, and choose from the question bank below.</p>
-
+<p>Welcome, Professor! You can enter questions for your question bank here.</p>
 </center>
-
+  
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
-        	<p class="headers">Welcome, Professor! You are currently working with quiz number <?php echo $_SESSION['quizID']; ?>  </p>
-
-
-       	  <table border="0">
-       	  
-              
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
-              <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/questionBank1.php">Visit the Open Ended Question Bank</a></span></td>
-              <tr>
-          </table>
-       	  <br>
-
-
-
-
-           <p class="headers">Good luck!</p>
-
-
-      </center>
+        	<p> Grades for students should be entered here.
+        </center>
         
     </div>
 
-  <div class="login" id = "footer"> <center>
- 
-  To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a> </center></div>
+  <div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
 
 </div>
 

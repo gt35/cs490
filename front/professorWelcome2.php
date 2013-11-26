@@ -4,7 +4,7 @@
 	
 	// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
 	$_SESSION['crnNumber'] = $_POST['dropDown'];
-	print_r($_SESSION);
+	//print_r($_SESSION);
 	//
 ?>
 

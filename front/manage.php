@@ -3,8 +3,8 @@
 	include("../resources/header.php");
 	
 	// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
-	print_r($_SESSION);
-	print_r($_POST);
+	//print_r($_SESSION);
+	//print_r($_POST);
 	if($_POST){
 		back('makeQuiz',$_POST,$gt35);
 		

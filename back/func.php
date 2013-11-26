@@ -55,7 +55,9 @@
 		return $ans;
 	}
 	function insertStudentAnsStr($str,$quizID,$ucid){
-		$q = "UPDATE submitted SET ansSTR = '".$str."' WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
+		$q = "INSERT INTO submitted(quizID,ucid,ansStr) VALUES('".$quizID."',
+		'".$ucid."','".$str."') ON DUPLICATE KEY
+		UPDATE ansSTR = '".$str."'";
 		runQuery($q);
 	}
 	function getGrades($ucid,$crn){
@@ -87,7 +89,7 @@
 		return $str;
 		//convert question bank stuff to string 
 	}
-	function gradeQuiz($quizID,$ucid){//returns int grade in form of total score
+	function gradeQuiz($quizID,$ucid,$crn){//returns int grade in form of total score
 		$q = getQuizQuestions($quizID);
 		$i = 0; //index
 		//$q = $q[0];
@@ -108,15 +110,22 @@
 			$i++;
 		}
 		$grade = ($score/$possible)*100;
-		insertGrade($ucid,$quizID,$grade);
+		insertGrade($ucid,$quizID,$grade,$crn);
+		//return $grade;
 	}
 	
-	function insertGrade($ucid,$quizID,$grade){
-		$q = "UPDATE submitted SET grade = grade + ".$grade." 
+	function insertGrade($ucid,$quizID,$grade,$crn){
+		$q = "UPDATE submitted SET grade = ".$grade.",crn = ".$crn." 
 		WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
 		runQuery($q);
+		//header('Location: http://web.njit.edu/~gt35/cs490/front/studentWelcome2.php');  
 	}//insert grade into db
-	
+	function subtractPoints($ucid,$quizID,$points,$crn){
+		$q = "UPDATE submitted SET grade = grade - $grade ,crn = ".$crn." 
+		WHERE quizID = '".$quizID."' AND ucid = '".$ucid."'";
+		runQuery($q);
+		//header('Location: http://web.njit.edu/~gt35/cs490/front/studentWelcome2.php');  
+	}
 	function getQuizzes($crn){//return quiz name for a particular class
 		$q = "SELECT * FROM quizzes WHERE crn = '".$crn."'";
 		$result = runQuery($q);
@@ -252,4 +261,10 @@
 		$result = runQuery($q);
 		return $result;
 	}
+	function gradeBook($crn){
+				$q = "SELECT * FROM submitted WHERE  crn = '".$crn."'";
+		$result = runQuery($q);
+		return $result;
+		}
+
 ?>

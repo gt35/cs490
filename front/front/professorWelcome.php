@@ -1,15 +1,3 @@
-<?php
-session_start();
-include("../resources/header.php");
-
-// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
-$_SESSION['quizID'] = $_POST['dropDown'];
-//print_r($_SESSION);
-//
-?>
-
-
-
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -168,7 +156,6 @@ a:hover {
 a:active {
 	text-decoration: none;
 }
-
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -181,39 +168,33 @@ a:active {
 <p>Welcome to learnToCode! Check grades, insert questions, and choose from the question bank below.</p>
 
 </center>
-
+  
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
-        	<p class="headers">Welcome, Professor! You are currently working with quiz number <?php echo $_SESSION['quizID']; ?>  </p>
-
-
+        	<p class="headers">Welcome, Professor! Please select from the options below.</p>
        	  <table border="0">
-       	  
-              
+              <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
+              </tr>
+            <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
+            </tr>
+              <tr>
                 <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
               <tr>
-                <td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/questionBank1.php">Visit the Open Ended Question Bank</a></span></td>
-              <tr>
+                <td class="choices"><span class="choices"><a href="http://web.njit.edu/~ac422/cs490n/front/gradebook.php">Check student grades</a></span></td>
           </table>
        	  <br>
-
-
-
-
            <p class="headers">Good luck!</p>
-
-
       </center>
         
     </div>
 
-  <div class="login" id = "footer"> <center>
- 
-  To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a> </center></div>
+  <div class="login" id = "footer"> <center>Welcome to learnToCode!</center></div>
 
 </div>
 

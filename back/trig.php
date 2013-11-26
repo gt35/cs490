@@ -38,9 +38,14 @@
 		}
 		if($f =='gradeQuiz'){
 			$str = convertAnsStr($_POST);
+			//echo $str;
 			insertStudentAnsStr($str,$_POST['quizID'],$_POST['username']);
 			//echo 'You scored '.gradeQuiz($_GET['quizID'],$_GET['u']).'%.';
-			gradeQuiz($_POST['quizID'],$_POST['username']);
+			gradeQuiz($_POST['quizID'],$_POST['username'],$_POST['crn']);
+			header('Location: http://web.njit.edu/~gt35/cs490/front/testing.php');
+		}
+		if($f =='subtractPoints'){
+			subtractPoints($_POST['ucid'],$_POST['quizID'],$_POST['points'],$_POST['crn']);
 		}
 		if($f == 'saveQuiz'){
 			$x = convertQuizStr($_POST);
@@ -51,6 +56,7 @@
 			$x = convertQuizStr($_POST);
 			updateQuiz($x,$_POST['quizID']);
 			//echo 'quiz saved!';
+			header('Location: http://web.njit.edu/~jdr22/cs490/middle/toMainMenu.php');
 		}
 		if($f == 'saveOpenEnded'){
 			$x = convertQuizStr($_POST);
@@ -100,11 +106,25 @@
 		if($f == 'getGrades'){
 			$c = array();
 			$result = getGrades($_POST['username'],$_POST['crn']);
+			//print_r($result);
 			while($row = mysqli_fetch_assoc($result)){
 				$c[] = $row;
-				}
-				$grades = array('grades'=>$c);
+			}
+			$grades = array('grades'=>$c);
 			echo json_encode($grades);
 		}
+		if($f == 'gradeBook'){
+			$c = array();
+			$result = gradebook($_POST['crn']);
+			//print_r($result);
+			while($row = mysqli_fetch_assoc($result)){
+				$c[] = $row;
+			}
+			$grades = array('gradebook'=>$c);
+			echo json_encode($grades);
+			
+		}
 	}
+	//header('Location: http://web.njit.edu/~gt35/cs490/front/');  
+	
 ?>

@@ -4,7 +4,7 @@
 	
 	// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
 	$_SESSION['quizID'] = $_POST['dropDown'];
-	print_r($_SESSION);
+	//print_r($_SESSION);
 	//
 ?>
 
@@ -199,8 +199,6 @@
 							
 							
 							<tr>
-								<td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
-								
 							</table>
 							<br>
 							

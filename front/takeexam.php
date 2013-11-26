@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['attempted'] = "yes"; // use this to kmow student has attempted exam
-print_r($_SESSION);
+//print_r($_SESSION);
 ?>
 
 <html>
@@ -109,6 +109,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";
 	echo "<input type='hidden' name='quizID' value=".$_SESSION['quizID']."><br>";
 	echo"<input type='hidden' name='username' value=".$_SESSION['ucid']."><br>";
+	echo"<input type='hidden' name='crn' value=".$_SESSION['crnNumber']."><br>";
 	$arr = array('quizID'=>$_SESSION['quizID']);
 	//echo back('getQuizQuestions',$arr,$gt35);
 	?>

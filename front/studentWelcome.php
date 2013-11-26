@@ -2,8 +2,7 @@
 	session_start();
 	include('../resources/header.php');
 	$value = "getCourses";
-	$postval =array('username'=>$_GET['u']);
-	//echo middle($value,$postval,$gt35);
+	// ucid is set as a session var in previous page, so $_SESSION['ucid'] should be populated from now on
 	$crn = $_POST['dropDown'];
 ?>
 

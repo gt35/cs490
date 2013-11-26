@@ -1,5 +1,5 @@
 <?php
-session_start()
+session_start();
 $_SESSION['attempted'] = "yes"; // use this to kmow student has attempted exam
 $_SESSION['quizID'] = $_POST['quizID'];
 ?>

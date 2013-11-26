@@ -59,7 +59,7 @@
 		runQuery($q);
 	}
 	function getGrades($ucid,$crn){
-		$q = "SELECT grade FROM submitted WHERE ucid = '".$ucid."' AND crn = '".$crn."'";
+		$q = "SELECT * FROM submitted WHERE ucid = '".$ucid."' AND crn = '".$crn."'";
 		$result = runQuery($q);
 		return $result;
 		//get all students quiz grades
@@ -68,7 +68,7 @@
 		// converts answers to string for insertion into db
 		$ansStr='';
 		while ($x = current($arr)){
-			if(strlen($x) ==  1){
+			if(strlen($x) ==  1 && is_numeric($x) == false){
 				$ansStr.= $x;
 			}
 			next($arr);
@@ -90,7 +90,7 @@
 	function gradeQuiz($quizID,$ucid){//returns int grade in form of total score
 		$q = getQuizQuestions($quizID);
 		$i = 0; //index
-		$q = $q['questions'];
+		//$q = $q[0];
 		$ans = $q[$i]['ans'];
 		$weight = $q[$i]['weight'];//value of the question
 		$sAns = getStudentAnsStr($quizID,$ucid);//student answer string

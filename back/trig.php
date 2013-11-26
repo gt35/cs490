@@ -38,8 +38,9 @@
 		}
 		if($f =='gradeQuiz'){
 			$str = convertAnsStr($_POST);
-			insertStudentAnsStr($str,$_GET['quizID'],$_GET['u']);
-			echo 'You scored '.gradeQuiz($_GET['quizID'],$_GET['u']).'%.';
+			insertStudentAnsStr($str,$_POST['quizID'],$_POST['username']);
+			//echo 'You scored '.gradeQuiz($_GET['quizID'],$_GET['u']).'%.';
+			gradeQuiz($_POST['quizID'],$_POST['username']);
 		}
 		if($f == 'saveQuiz'){
 			$x = convertQuizStr($_POST);
@@ -66,16 +67,15 @@
 			echo json_encode($quizzes);
 		}
 		if($f == 'getQuizQuestions'){
-			//print_r(getQuizQuestions($_POST['quizID']));
-			//echo "<br>";
+			// print_r(getQuizQuestions($_POST['quizID']));
+			// echo "<br>";
 			echo json_encode(array('questions' => getQuizQuestions($_POST['quizID'])));
 		}
 		if($f == 'getOpenEnded'){
 			//print_r(getQuizQuestions($_POST['quizID']));
 			//echo "<br>";
 			echo json_encode(array('questions' => getOpenEndedQuestions($_POST['quizID'])));
-		}
-		
+		}		
 		if($f == 'allQuestions'){
 			//print_r(allQuestions());
 			echo json_encode(allQuestions($_POST['crn']));
@@ -98,9 +98,13 @@
 			echo convertQuizStr($_POST);
 		}
 		if($f == 'getGrades'){
+			$c = array();
 			$result = getGrades($_POST['username'],$_POST['crn']);
-			$row = mysqli_fetch_assoc($result);
-			echo json_encode($row);
+			while($row = mysqli_fetch_assoc($result)){
+				$c[] = $row;
+				}
+				$grades = array('grades'=>$c);
+			echo json_encode($grades);
 		}
 	}
 ?>

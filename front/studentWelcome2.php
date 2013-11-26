@@ -223,7 +223,7 @@
 								</script>
 							</tr>
 							<tr>
-								<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/grades.php">Check your Grade</a></span></td>
+								<td><span class="choices"><a href="http://web.njit.edu/~gt35/cs490/front/grades.php">Check your Grade</a></span></td>
 							</table><br>
 							<p class="headers">Good luck!</p>
 							

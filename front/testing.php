@@ -112,7 +112,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
-<center><div class="text" id = div1; style="padding-top:50px; width:100%; margin: 0 auto;" > This is where the question would be  </div></center>
+<center><div class="text" id = div1; style="padding-top:50px; width:100%; margin: 0 auto;" > This is where the question would be </div></center>
 <div id = div2; style="padding-top:180px; width:100%; margin: 0 auto;" > 
   <form name="form2" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/compile.php">
     <label for="code"></label>

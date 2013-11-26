@@ -57,10 +57,11 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	background-color: #78C659;
 	position: fixed;
 	bottom: 0px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 	padding-bottom: 10px;
 	margin-top: 10px;
 	padding-top: 10px;
+	margin-left: 0px;
 	width: 100%;
 }
 #login .login center #username3 {
@@ -108,7 +109,7 @@ My Grades
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 
-<div id = grade; style="padding-top:180px; width:100%; margin: 0 auto;" >
+<div id = grade; style="padding-top:60px; width:100%; margin: 0 auto;" >
 
 	<center>
 	<div id = gradeContainer>
@@ -120,7 +121,47 @@ My Grades
 
 			document.write("<p>Your exam grade is " + grade + "</p>");
 
+			document.write("Exam Solutions: <br><br>");
 		</script>
+
+
+
+		<script>
+	
+	
+	var JSONAnswers = {"questions":[{"id":"6","crn":"1","text":"what is java","a":"coffe","b":"bean","c":"programming language","d":"all of the above","ans":"d","weight":"10"},{"id":"9","crn":"1","text":"What is the best pokemon?","a":"pikachu","b":"mr cool guy","c":"sandslash","d":"Blastoise","ans":"a","weight":"10"},{"id":"34","crn":"1","text":"Which of the following is the keyword for the integer data type in Java?","a":"int","b":"inty","c":"ints","d":"double","ans":"a","weight":"10"},{"id":"35","crn":"1","text":"Which of these statements is invalid?","a":"String name = \"Daniel\";","b":"int number = 5;","c":"boolean isFalse = false;","d":"int numbers = name;","ans":"d","weight":"10"},{"id":"39","crn":"1","text":"What is CS 490?","a":"A class on software engineering","b":"I have no idea","c":"A math course","d":"Random Answer","ans":"a","weight":"10"},{"id":"40","crn":"1","text":"this question is worth 100 points in weight.","a":"this is the right answer","b":"dont get it wrong","c":"you will fail","d":"im serious","ans":"a","weight":"100"},{"id":"41","crn":"1","text":"This question is worth an incredible amount of points.","a":"better get it right","b":"or you will surely fail","c":"maybe even worse","d":"who knows","ans":"a","weight":"90000000"},{"id":"42","crn":"1","text":"test","a":"right","b":"wrong","c":"wrong","d":"wrong","ans":"a","weight":"10"},{"id":"48","crn":"1","text":"Wgat s8r ","a":"","b":"","c":"rught","d":"","ans":"c","weight":"20"},{"id":"49","crn":"1","text":"Test question about numbers.","a":"1","b":"-1","c":"0","d":"pi","ans":"d","weight":"2"},{"id":"50","crn":"1","text":"What is the name of this course?","a":"CS490","b":"IT101","c":"CS102","d":"MTH473","ans":"a","weight":"1"},{"id":"51","crn":"1","text":"first","a":"a","b":"b","c":"c","d":"d","ans":"a","weight":"1"},{"id":"52","crn":"1","text":"first3","a":"a","b":"dsd","c":"sf","d":"ss","ans":"b","weight":"2"},{"id":"53","crn":"1","text":"second3","a":"aa","b":"sd","c":"asd","d":"asdas","ans":"d","weight":"0"},{"id":"54","crn":"1","text":"first2","a":"a","b":"b","c":"c","d":"d","ans":"c","weight":"0"},{"id":"55","crn":"1","text":"first3","a":"a","b":"b","c":"c","d":"d","ans":"c","weight":"0"},{"id":"56","crn":"1","text":"second3","a":"a","b":"b","c":"c","d":"d","ans":"c","weight":"0"},{"id":"63","crn":"1","text":"What is java?","a":"A programming language","b":"Not a programming language","c":"a constructor","d":"a method","ans":"a","weight":"1"},{"id":"64","crn":"1","text":"What is the name of this course?","a":"CS490","b":"CS431","c":"CS101","d":"IT202","ans":"a","weight":"1"}]}; 
+
+		for(var key in JSONAnswers.questions){
+
+			var id = JSONAnswers.questions[key].id;
+
+		 	var text = JSONAnswers.questions[key].text;
+
+		 	var answers = JSONAnswers.questions[key].ans;
+
+		 	document.write(id + ". " + text + "<br>");		//all the questions
+		 	
+		 	var a = JSONAnswers.questions[key].a;
+		 	document.write("a" + ". ");						//gives the "a. " before each answer for a
+		 	document.write(a + "<br>");
+
+		 	var b = JSONAnswers.questions[key].b;
+		 	document.write("b" + ". ");						//gives the "b. " before each answer for b
+		 	document.write(b + "<br>");
+
+		 	var c = JSONAnswers.questions[key].c;
+		 	document.write("c" + ". ");						//gives the "c. " before each answer for c
+		 	document.write(c + "<br>");
+
+		 	var d = JSONAnswers.questions[key].d;
+		 	document.write("d" + ". ");						//gives the "d. " before each answer for d
+		 	document.write(d + "<br>");
+
+		 	document.write("<b>CORRECT ANSWER: " + answers + "</b><br><br><br>");
+		}
+
+
+</script>
 
 	</div>
 	</center>

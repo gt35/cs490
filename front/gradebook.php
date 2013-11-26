@@ -130,7 +130,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 <div class="login" id="login">
   
   <center>
-<p>Welcome, Professor! You can enter questions for your question bank here.</p>
+<p>Welcome, Professor!</p>
 </center>
   
 </div>

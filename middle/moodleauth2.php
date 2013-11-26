@@ -48,30 +48,10 @@
 	
 		if (strpos($result,'Object moved') !== false) 
 		{
+			// log the authenticated user into the website
 			session_start();
 			$_SESSION['ucid'] = $username;
 			header('Location: http://web.njit.edu/~ac422/cs490/front/studentWelcome.php');
-			/*$value = "getCourses";
-			$postval = array('username'=> $_POST['username']);
-			$data = getJSON($value,$postval,$gt35);
-			//echo 'authenticated';
-			$welcomeURL = 'http://web.njit.edu/~ac422/cs490/front/studentWelcome.php';
-			//open connection
-			$ch = curl_init();
-			//set the url
-			curl_setopt($ch,CURLOPT_URL, $welcomeURL);
-		
-			$fields = array(
-			'username' => urlencode($username), 'data' => $data
-			);
-		
-			curl_setopt($ch,CURLOPT_POST, true);
-			curl_setopt($ch,CURLOPT_POSTFIELDS, $fields);
-		
-			curl_exec($ch);
-			//close connection
-			curl_close($ch);*/
-			
 		}
 		else
 		{

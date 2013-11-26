@@ -109,39 +109,25 @@
 		<div id = "wrapper" width = 100%; style="margin: 0 auto;">
 			
 			<div id = grade; style="padding-top:180px; width:100%; margin: 0 auto;" >
-				<?php
+				<?php/*
 					$arr = array('username'=>$_SESSION['ucid'],'crn'=>$_SESSION['crnNumber'],'quizID'=>$_SESSION['quizID']);
 					$x = back('getGrades',$arr,$gt35);
 					echo $x;
-					$y = back('getQuizQuestions',$arr,$gt35);
+					$y = back('getQuizQuestions',$arr,$gt35); */
 				?>
 				<center>
 					<div id = gradeContainer>
 
-						<script>
-
-							//var JSONObject = <?php echo $x; ?>;
-							//var JSONAnswers	= <?php echo $y; ?>;
-							//var grade = JSONObject.grade[0];
-
-
-							//document.write("<p>Your exam grade is " + grade + "</p>");
-
-
-
-						</script>
 						<script type="text/javascript">
+
 							
 							var JSONObject = <?php echo $x; ?>;
 							var JSONAnswers	= <?php echo $y; ?>;
 							var grade = JSONObject.grade[0];
-
 							document.write("<p>Your exam grade is " + grade + "</p>");
+
 							
-
-
-
-
+						
 							for(var key in JSONAnswers.questions){
 
 								var id = JSONAnswers.questions[key].id;
@@ -171,9 +157,10 @@
 								document.write("<b>CORRECT ANSWER: " + answers + "</b><br><br><br>");
 							}
 							
-							
+
+
 						</script>
-						
+
 					</div>
 				</center>
 				

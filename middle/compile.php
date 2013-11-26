@@ -1,5 +1,16 @@
 <?php
 
+// incoming data to this script
+/*
+$input , input test cases stored in DB, extracted by JSON previous page
+$output ,matching output for test cases, stored in DB, extracted by JSON previous page
+$type , primitive java datatype, stored in DB, extracted by JSON previous page
+$name , name of the method, stored in DB, extracted by JSON previous page
+$arguments , name of method's arguments,  stored in DB, extracted by JSON previous page
+$methodBody , user writes the actual method code, user input, no need to store in DB, POST'ed or SESSION'ed from prev page
+
++ any more I need to submit a score/grade
+*/
 //debugging set vars locally
 $input = "(2,2) (1,3) (8,7)";
 $output = "4,4,15";

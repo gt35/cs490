@@ -130,7 +130,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 <div class="login" id="login">
   
   <center>
-<p>Welcome, Professor! You can enter questions for your question bank here.</p>
+<p>Welcome, Professor!</p>
 </center>
   
 </div>
@@ -139,7 +139,27 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
-        	<p> Grades for students should be entered here.
+        	<p> 
+        		Gradebook for Course Number <?php echo $_SESSION['crnNumber']; ?>;
+
+        		<!-- Giaspur -- PUT THE JSON OBJECT HERE -->
+
+					var quizId = JSONQuestions.gradebook[key].quizId;
+
+					for(var key in JSONQuestions.gradebook){
+
+
+					 	var ucid = JSONQuestions.gradebook[key].ucid;
+
+
+					 	document.write("Quiz grade for " + ucid + " is " + grade + "<br><br>");
+
+
+
+
+					}
+
+        	</p>
         </center>
         
     </div>

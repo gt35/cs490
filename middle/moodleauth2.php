@@ -5,14 +5,14 @@
 	if($_POST['username'] === "teacher")
 	{
 		header('Location: http://web.njit.edu/~ac422/cs490/front/professorWelcome.php');
-		 $profURL = "http://web.njit.edu/~ac422/cs490/front/professorWelcome.php";
+		 /*$profURL = "http://web.njit.edu/~ac422/cs490/front/professorWelcome.php";
 		 //open connection
 		 $ch = curl_init();
 		 //set the url
 		 curl_setopt($ch,CURLOPT_URL, $profURL);
 		 curl_exec($ch);
 		 //close connection
-		 curl_close($ch);
+		 curl_close($ch);*/
 		 
 		
 	}

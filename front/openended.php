@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?> 
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -210,7 +214,9 @@ Welcome, Professor! Please enter an open ended question to add to the question b
 	<center>
       <table border="0">
       <tr>
-        <td><p class="insertquestion">Please enter an open ended coding question for your students to be tested on:</p></td>
+        <td><p class="insertquestion">
+        Please enter a question along with input values and output values:
+	</p></td>
       </tr>
       <tr>
         <td><form name="form1" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/submitOpenEnded.php">
@@ -247,7 +253,12 @@ Welcome, Professor! Please enter an open ended question to add to the question b
     </center>
 
 </div>
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+<div class="login" id = "footer"> <center>
+
+<a href="http://web.njit.edu/~jdr22/cs490/middle/toMainMenu.php">Visit the Main Menu</a>     |  
+<a href="http://web.njit.edu/~ac422/cs490/front/form.php">Create a Multiple Choice Question</a>     |  
+<a href="http://web.njit.edu/~ac422/cs490/front/questionbank.php">Go to the Question Bank</a>     |  
+To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a></center></div>
 
 </div>
 

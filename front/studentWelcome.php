@@ -1,10 +1,11 @@
 <?php
-	include('../resources/header.php');
 	session_start();
+	include('../resources/header.php');
 	$value = "getCourses";
 	$postval =array('username'=>$_GET['u']);
 	//echo middle($value,$postval,$gt35);
 ?>
+
 <html>
 	<head>
 		<title>Welcome to learnToCode!</title>
@@ -198,14 +199,32 @@
 		<!--this is where you would get the json object and display the stuff
 		var x = http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses //returns a json object, so assign this to a variable and list them
 		-->
-
-		<tr>
-		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/takeexam.php">Take your Exam part I [open ended]</a></span></td>
-		</tr>
-
-		<tr>
-		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
-		</tr>
+		
+		<?php
+		// tutorial on how to do this: http://www.w3schools.com/php/php_sessions.asp
+		// attempted will be a session variable created when takeexam is loaded
+		if( isset($_SESSION['attempted']))
+		{
+			echo "<p> You have no current exams available </p>";
+			// if you want to have some other html outputted here
+			// use echo
+		}
+		else
+		{
+			// fill out the rest of the echos
+		
+		
+			echo '<tr>
+			<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/takeexam.php">Take your Exam part I</a></span></td>
+			</tr>';
+			
+			echo '<tr>
+			<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
+			</tr>';
+			
+		}
+		
+		?>
 
 		<tr>
 		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/grades.php">Check your Grade</a></span></td>
@@ -216,7 +235,7 @@
         
 		</div>
 		
-		<div class="login" id = "footer"> <center>Welcome to learnToCode!</center></div>
+		<div class="login" id = "footer"> <center>Welcome to learnToCode! To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a></center></div>
 		
 		</div>
 		

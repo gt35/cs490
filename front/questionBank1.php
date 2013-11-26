@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <html>
@@ -113,59 +112,47 @@ Welcome to the Question Bank, Professor!
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 <div id = questionbank; style="padding-top:50px;  padding-left:60px; width:100%; margin: 0 auto;" > 
-<p> Please select from the following questions: </p>
-
-<?php
-	include('../resources/header.php');
-	$url = $gt35."/back/back.php?f=saveQuiz";
-	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";  
-
-?>
 
 
-<script>
-	
-	<?php
-		$gt35 = 'http://web.njit.edu/~gt35/cs490'; //back
-		$crn = $_SESSION['crnNumber'];
-		$JSONOutput = back('allQuestions',$crn,$gt35);
-		//echo $JSONOutput;
-	?>
-	
-	var JSONQuestions = <?php echo $JSONOutput; ?>;
-
-for(var key in JSONQuestions.questions){
-
-	var id = JSONQuestions.questions[key].id;
+	<script type="text/javascript">
+		document.write("<form action='http://web.njit.edu/~gt35/back/back.php?f=saveOpenEnded' method='post' name='form1' class='submitquestions'>");
 
 
- 	var text = JSONQuestions.questions[key].text;
+			var JSONOBJECT = {"openEnded":[{"id":"9","text":"Write a function to add two integers","type":"int","input":"(2,2)(3,3)(4,4)","output":"4,6,8","args":"int arg1, int arg2","name":"addd","weight":"10"},{"id":"34","text":"Write a function to subtract two integers","type":"double","input":"(2,2)(3,3)(4,4)","output":"4,6,8","name":"add","weight":"10"},{"id":"35","text":"Write a function to multiply two integers","type":"boolean","input":"(2,2)(3,3)(4,4)","output":"4,6,8","args":"int arg1, int arg2","name":"subtract","weight":"10"},{"id":"40","text":"Write a function to take the average of two integers","type":"int","input":"(2,2)(3,3)(4,4)","output":"4,6,8","args":"int arg1, int arg2","name":"add","weight":"100"}]};
 
- 	document.write("<input type='checkbox' name= " + id + ">");
- 	document.write(id + ". " + text + "<br>");		//all the questions
- 	
- 	var a = JSONQuestions.questions[key].a;
- 	document.write("a" + ". ");						//gives the "a. " before each answer for a
- 	document.write(a + "<br>");
-
- 	var b = JSONQuestions.questions[key].b;
- 	document.write("b" + ". ");						//gives the "b. " before each answer for b
- 	document.write(b + "<br>");
-
- 	var c = JSONQuestions.questions[key].c;
- 	document.write("c" + ". ");						//gives the "c. " before each answer for c
- 	document.write(c + "<br>");
-
- 	var d = JSONQuestions.questions[key].d;
- 	document.write("d" + ". ");						//gives the "d. " before each answer for d
- 	document.write(d + "<br><br>");
-}
-
-document.write("<input type='submit' value='Submit Questions'> </form> <br><br><br><br><br>");
-
-</script>
-
-
+				for(var key in JSONOBJECT.openEnded){
+				
+					var id = JSONOBJECT.openEnded[key].id;
+				
+					var text = JSONOBJECT.openEnded[key].text;
+				
+					document.write("<input type='checkbox' name= " + id + ">");
+					document.write(id + ". " + text + "<br>");		//all the questions
+					
+					var type = JSONOBJECT.openEnded[key].type;
+					document.write("Type: ");						
+					document.write(type + "<br>");
+				
+					var input = JSONOBJECT.openEnded[key].input;
+					document.write("Input: ");						
+					document.write(input + "<br>");
+				
+					var output = JSONOBJECT.openEnded[key].output;
+					document.write("Output: ");						
+					document.write(output + "<br>");
+				
+					var args = JSONOBJECT.openEnded[key].args;
+					document.write("Arguments: ");						
+					document.write(args + "<br>");
+					
+					var name = JSONOBJECT.openEnded[key].name;
+					document.write("Name: ");						
+					document.write(name + "<br><br>");
+				}
+						
+		
+		document.write("<input type='submit' value='Submit Questions'> </form> <br><br><br>");
+	</script>
 
 
 
@@ -176,8 +163,9 @@ document.write("<input type='submit' value='Submit Questions'> </form> <br><br><
 
 </div>
 <div class="login" id = "footer"> <center>
-<a href="http://web.njit.edu/~jdr22/cs490/middle/toMainMenu.php">Visit the Main Menu</a>     |  
-<a href="http://web.njit.edu/~ac422/cs490/front/questionBank1.php">Choose Open Ended Questions</a>     |  
+
+<a href="http://web.njit.edu/~jdr22/cs490/middle/toMainMenu.php">Visit the Main Menu</a>     |   
+<a href="http://web.njit.edu/~ac422/cs490/front/questionbank.php">Go back to the Question Bank</a>     |  
 To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a></center></div>
 
 </div>

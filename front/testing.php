@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
 <title>Welcome to learnToCode!</title>
@@ -101,7 +105,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
     <center>
     	
-        <p>Hi!</p>
+        <p>Open Ended portion of the exam: You will have 3 minutes to complete this.</p>
         
     </center>
   
@@ -120,7 +124,7 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
     </div>
   </form>
 </div>
-<div class="login" id = "footer"> <center>Welcome to learnToCode! Please sign in above in order to continue. Good luck!</center></div>
+<div class="login" id = "footer"> <center>Please complete your exam and submit it before continuing.</center></div>
 
 </div>
 

@@ -1,6 +1,14 @@
-<?php 
+<?php
 session_start();
+include("../resources/header.php");
+
+$url = "http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses";
+
+$crn = $_POST['dropDown'];		// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
+$_SESSION['crnNumber'] = $crn;
 ?>
+
+
 
 <html>
 <head>
@@ -122,7 +130,47 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 	color: #333;
 	margin-bottom: 8px;
 }
+.headers {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #06C;
+	padding: 5px;
+	border: 1px dotted #78C659;
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-bottom: 15px;
+	margin-left: 3px;
+}
+.choices {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #06C;
+	font-size: 13px;
+	margin-top: 3px;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	margin-left: 3px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+}
+a:link {
+	text-decoration: none;
+	color: #06C;
+}
+a:visited {
+	text-decoration: none;
+	color: #03C;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+
 </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
 <body>
@@ -130,26 +178,49 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 <div class="login" id="login">
   
   <center>
-<p>Welcome, Professor! You can enter questions for your question bank here.</p>
+<p>Welcome to learnToCode! Check grades, insert questions, and choose from the question bank below.</p>
+
 </center>
-  
+
 </div>
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 
     <div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
-        	<p> Grades for students should be entered here.
-        </center>
+        	<p class="headers">Welcome, Professor! You are currently working with crn number <?php echo $_SESSION['crnNumber']; ?>  </p>
+
+
+       	  <table border="0">
+       	  
+              <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/form.php">Insert Multiple choice questions</a></span></td>
+              </tr>
+            <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/openended.php">Insert open ended questions [functions]</a></span></td>
+            </tr>
+              <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/questionbank.php">Visit the Question Bank</a></span></td>
+              <tr>
+                <td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/questionBank1.php">Visit the Open Ended Question Bank</a></span></td>
+              <tr>
+                <td class="choices"><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/gradebook.php">Check student grades</a></span></td>
+          </table>
+       	  <br>
+
+
+
+
+           <p class="headers">Good luck!</p>
+
+
+      </center>
         
     </div>
 
   <div class="login" id = "footer"> <center>
-  
-  <a href="http://web.njit.edu/~jdr22/cs490/middle/toMainMenu.php">Visit the Main Menu</a>     |  
-  <a href="http://web.njit.edu/~ac422/cs490/front/form.php">Create quiz questions</a>     |  
-  
-  To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a></center></div>
+ 
+  To logout, please <a href="http://web.njit.edu/~jdr22/cs490/middle/logout.php">click here.</a> </center></div>
 
 </div>
 

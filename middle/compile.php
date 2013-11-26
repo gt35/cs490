@@ -1,5 +1,6 @@
 <?php
-
+include('../resources/header.php');
+session_start();
 // incoming data to this script
 /*
 $input , input test cases stored in DB, extracted by JSON previous page
@@ -20,31 +21,32 @@ $arguments = "int arg1, int arg2";
 $methodBody = "int sum = arg1 + arg2; return sum;";*/
 
 $input = $_POST['input'];
+echo "Raw input POST var".$input."<br><br>";
 $output = $_POST['output'];
 $type = $_POST['type'];
 $name = $_POST['name'];
 $arguments = $_POST['arguments'];
 $methodBody = $_POST['code'];
 
-ini_set('display_errors',1); 
+//ini_set('display_errors',1); 
 
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 // input parser
 $inputArray = explode(" ", $input );
 // print the input
-foreach($inputArray as $value)
-{
-	echo $value."<br>";
-}
+//foreach($inputArray as $value)
+//{
+//	echo $value."<br>";
+//}
 
 // output parser
 $outputArray = explode("," , $output);
 // print the output
-foreach($outputArray as $value)
-{
-	echo $value."<br>";
-}
+//foreach($outputArray as $value)
+//{
+//	echo $value."<br>";
+//}
 
 // number of cases to check
 $count = count($inputArray);
@@ -56,13 +58,13 @@ for($i = 0; $i <count($inputArray); ++$i)
 		$casesString = $casesString."if( ".$name.$inputArray[$i]."!=".$outputArray[$i].'){ System.out.println("Wrong");}';
 }
 
-echo $casesString;
+//echo $casesString;
 
 // name of the file I want to write to
 $file = '/afs/cad.njit.edu/u/j/d/jdr22/public_html/cs490/middle/write/JavaCode.java';
 
 // debugging
-echo "The name of the file was: $file <br><br> ";
+//echo "The name of the file was: $file <br><br> ";
 
 //what I want to actually write to file
 $fileContent = "\n 
@@ -75,22 +77,22 @@ public class JavaCode \n
 }\n";
 
 //debugging
-echo "The file contents we want to write:<br> $fileContent <br><br> ";
+//echo "The file contents we want to write:<br> $fileContent <br><br> ";
 
 
 // write content to file
 $return = file_put_contents($file, $fileContent);
 
 //debugging
-if($return === FALSE)
-{
-echo "Write to file failed.<br><br>";
-echo "return contents: $return <br><br>";
-}
+//if($return === FALSE)
+//{
+//echo "Write to file failed.<br><br>";
+//echo "return contents: $return <br><br>";
+//}
 //debugging
 //actual file contents
-$actualFileContents = file_get_contents($file);
-echo "<br><br> $actualFileContents <br><br>";
+//$actualFileContents = file_get_contents($file);
+//echo "<br><br> $actualFileContents <br><br>";
 
 // debugging
 //echo "<br>";
@@ -100,15 +102,43 @@ echo "<br><br> $actualFileContents <br><br>";
 //echo "<br>";
 $sample = shell_exec('cd write && pwd && javac JavaCode.java && java JavaCode');
 // use shell_exec to return string to variable
-echo $sample."<br><br>";
+//echo "Sample is ".$sample."<br><br>";
 
 if(strpos($sample,"Wrong") )
 {
-echo "Student got the question wrong";
+$points = '10';
+//echo "Student got the question wrong";
+$arr = array(
+    'ucid' => $_SESSION['ucid'],
+    'quizID' => $_SESSION['quizID'],
+	'points' => $points,
+	'crn' => $_SESSION['crnNumber']
+);
+back('subtractPoints',$arr, $gt35);
+$username = $_SESSION['ucid'];
+echo "<html>
+			<form id='form' action='http://web.njit.edu/~gt35/cs490/front/studentWelcome.php' method='POST'>
+			<input type='hidden' name='ucid' value='$username'>
+			</form>
+			<script>
+				document.getElementById(\"form\").submit();
+			</script>
+			</html>";
+			
+			
 }
 else
 {
-echo "Student got the question right";
+//echo "Student got the question right";
+$username = $_SESSION['ucid'];
+echo "<html>
+			<form id='form' action='http://web.njit.edu/~gt35/cs490/front/studentWelcome.php' method='POST'>
+			<input type='hidden' name='ucid' value='$username'>
+			</form>
+			<script>
+				document.getElementById(\"form\").submit();
+			</script>
+			</html>";
 }
 
 echo "<br>";

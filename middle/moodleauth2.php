@@ -82,15 +82,7 @@
 		}
 		else
 		{
-			/*//echo 'not authenticated' 
-			$failURL = 'http://web.njit.edu/~ac422/cs490/front/index.html';
-			//open connection
-			$ch = curl_init();
-			//set the url
-			curl_setopt($ch,CURLOPT_URL, $failURL);
-			curl_exec($ch);
-			//close connection
-			curl_close($ch);*/
+			//not authenticated
 			header('Location: http://web.njit.edu/~ac422/cs490/front/index.html');
 		}
 	}

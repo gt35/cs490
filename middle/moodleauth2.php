@@ -5,7 +5,7 @@
 	if($_POST['username'] === "teacher")
 	{
 		// teacher gets to login, no need to authenticate
-		header('Location: http://web.njit.edu/~ac422/cs490/front/professorWelcome.php');
+		header('Location: http://web.njit.edu/~gt35/cs490/front/professorWelcome.php');
 	}
 	else
 	{
@@ -50,7 +50,7 @@
 		{
 			// log the authenticated user into the website
 			echo "<html>
-			<form id='form' action='http://web.njit.edu/~ac422/cs490/front/studentWelcome.php' method='POST'>
+			<form id='form' action='http://web.njit.edu/~gt35/cs490/front/studentWelcome.php' method='POST'>
 			<input type='hidden' name='ucid' value='$username'>
 			</form>
 			<script>
@@ -61,7 +61,7 @@
 		else
 		{
 			//not authenticated
-			header('Location: http://web.njit.edu/~ac422/cs490/front/index.html');
+			header('Location: http://web.njit.edu/~gt35/cs490/front/index.html');
 		}
 	}
 	

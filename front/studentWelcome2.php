@@ -1,16 +1,17 @@
 <?php
 	session_start();
-	include('../resources/header.php');
+	include('file:///C|/Users/Andrew_2/Application Data/SSH/resources/header.php');
 	$value = "getCourses";
 	$postval =array('username'=>$_GET['u']);
 	//echo middle($value,$postval,$gt35);
-	$crn = $_POST['dropDown'];
+	$crn = $_POST['dropDown'];		// gets the crn value of the dropDown box in professorWelcome and assigns it to the php variable $crn
+	$_SESSION['crnNumber'] = $crn;
 ?>
 
 <html>
 	<head>
 		<title>Welcome to learnToCode!</title>
-		<script src="SpryAssets/SpryEffects.js" type="text/javascript"></script>
+		<script src="file:///C|/Users/Andrew_2/Application Data/SSH/temp/SpryAssets/SpryEffects.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 			{
@@ -18,7 +19,7 @@
 			}
 			
 		</script>
-		<script type="text/javascript" src="style.css"></script>
+		<script type="text/javascript" src="file:///C|/Users/Andrew_2/Application Data/SSH/temp/style.css"></script>
 		<style type="text/css">
 			.button {
 			background-color: #78C659;
@@ -185,33 +186,51 @@
 		
 		<div id = div1; style="padding-top:180px; width:100%; margin: 0 auto;" > 
         <center>     
-		<p class="headers">Welcome! Please select what you would like to do below.</p>
+		<p class="headers">Welcome! Please select what you would like to do below.<br>Current CRN: <?php echo $_SESSION['crnNumber']; ?></p>
 		<table border="0">
 		<tr>
-<!-- 		<td><span class="choices"> -->
+<!-- 		<td><span class="choices">
 				<?php 
-				//$url = "http://web.njit.edu/~ac422/cs490/front/takeexam.php".$_GET['u'];
-				//echo "<a href = $url>";
+				$url = "http://web.njit.edu/~ac422/cs490/front/takeexam.php".$_GET['u'];
+				echo "<a href = $url>";
 				?>
+			Take your Exam part I [Multiple choice]</a></span></td>
+		</tr> -->
+
+
+		<!--this is where you would get the json object and display the stuff
+		var x = http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses //returns a json object, so assign this to a variable and list them
+		-->
+		
+		<?php
+		// tutorial on how to do this: http://www.w3schools.com/php/php_sessions.asp
+		// attempted will be a session variable created when takeexam is loaded
+		if( isset($_SESSION['attempted']))
+		{
+			echo "<p> You have no current exams available </p>";
+			// if you want to have some other html outputted here
+			// use echo
+		}
+		else
+		{
+			// fill out the rest of the echos
+		
+		
+			echo '<tr>
+			<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/takeexam.php">Take your Exam part I</a></span></td>
+			</tr>';
 			
-            <script type="text/javascript">
-				var JSONObject = {"classes":[{"name":"CS490","fullName":"SOFTWARE ENGINEERING","crn":"1"},{"name":"CS435","fullName":"ADV DATA STRUCTURES","crn":"2"},{"name":"MATH346","fullName":"MATHEMATICS OF FINANCE","crn":"4"},{"name":"IT266","fullName":"GAME MOD DEVELOPMENT","crn":"3"}]};
-
-					document.write("<form action='studentWelcome2.php' method='post' name='dropDown' class='dropDown'>");		// ** MAKE SURE TO ADD FORM BEGINNING
-					document.write('<select name="dropDown" class="dropDownBox" id="dropDown">');		// the select form header
-
-						for(var key in JSONObject.classes){
-							var name = JSONObject.classes[key].name;
-							var crn = JSONObject.classes[key].crn;
-
-							document.write("<option value = " + crn + ">" + name + "</option>");
-						}
-						var crn = JSONObject.classes[key].crn;
-					document.write("<input type='submit' value='Submit'> </form>");		// the submit button, already have closing form tag
-					
-				</script>
+			echo '<tr>
+			<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/testing.php">Take your Exam part II [open ended]</a></span></td>
+			</tr>';
+			
+		}
 		
-		
+		?>
+
+		<tr>
+		<td><span class="choices"><a href="http://web.njit.edu/~ac422/cs490/front/grades.php">Check your Grade</a></span></td>
+		</table><br>
 		<p class="headers">Good luck!</p>
 
 		</center>

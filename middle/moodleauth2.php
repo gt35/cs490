@@ -49,9 +49,14 @@
 		if (strpos($result,'Object moved') !== false) 
 		{
 			// log the authenticated user into the website
-			session_start();
-			$_SESSION['ucid'] = $username;
-			header('Location: http://web.njit.edu/~ac422/cs490/front/studentWelcome.php');
+			echo "<html>
+			<form id='form' action='http://web.njit.edu/~ac422/cs490/front/studentWelcome.php' method='POST'>
+			<input type='hidden' name='ucid' value='$username'>
+			</form>
+			<script>
+				document.getElementById(\"form\").submit();
+			</script>
+			</html>";
 		}
 		else
 		{

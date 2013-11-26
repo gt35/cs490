@@ -134,10 +134,16 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 for(var key in JSONOBJECT.questions){
 
         var id = JSONOBJECT.questions[key].id;
+        var text = JSONOBJECT.questions[key].text;
+        var type = JSONOBJECT.questions[key].type;
+        var inputVar = JSONOBJECT.questions[key].input;
+        var outputVar = JSONOBJECT.questions[key].output;
+        var argumentsVar = JSONOBJECT.questions[key].arguments;
+        var name = JSONOBJECT.questions[key].name;
+        var weight = JSONOBJECT.questions[key].weight;
 
-         var text = JSONOBJECT.questions[key].text;
-
-         document.write(text + "<br><br>");        
+         document.write("Coding task: " + text + "<br>");
+         document.write("Arguments you have access to: " + argumentsVar + "<br>");
          
 }
 
@@ -145,6 +151,14 @@ for(var key in JSONOBJECT.questions){
         
         </script>
       <textarea name="code" cols="150" rows="15" class="textbox" id="code">
+      <script>
+      document.write("<input type='hidden' name='type' value=" + type  + ">");
+      document.write("<input type='hidden' name='input' value=" + inputVar  + ">");
+      document.write("<input type='hidden' name='output' value=" + outputVar  + ">");
+      document.write("<input type='hidden' name='arguments' value=" + argumentsVar  + ">");
+      document.write("<input type='hidden' name='name' value=" + name  + ">");
+      document.write("<input type='hidden' name='weight' value=" + weight  + ">");
+      </script>
 
  </textarea>
       <br>

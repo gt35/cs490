@@ -1,24 +1,28 @@
 <?php
 session_start();
 //{"quizzes":[{"id":"1","crn":"1","name":"test quiz"}]}
-$quizzes = '{"quizzes":[{"id":"1","crn":"1","name":"test quiz"}]}';
-$crn = $_SESSION['crn']; // need the crn to be a session var reaching this page
+$quizzes = '{"quizzes":[{"id":"1","crn":"1","name":"test quiz"},{"id":"2","crn":"1","name":"test quiz2"}]}';
+//$crn = $_SESSION['crn']; // need the crn to be a session var reaching this page
+$crn = "1";
+echo $quizzes;
 
 ?>
 <html>
-<script>
+<body>
+<script>	
 	var JSONQuizzes = <?php echo $quizzes; ?>;
-	var JSObjQuizzes = eval ("(" + JSONQuizzes + ")");
+	document.write(JSONQuizzes);
 	var atLeastOneQuiz = "no";
 	// start html form
-	document.write("<form>");
-	for(var key in JSObjQuizzes.quizzes )
+	document.write("<form action='http://web.njit.edu/~ac422/cs490/front/takeexam.php' method='POST' >");
+	
+	for(var key in JSONQuizzes.quizzes )
 	{
-		if( JSObjQuizzes.quizzes[key].crn == <?php echo $crn; ?> )
+		if( JSONQuizzes.quizzes[key].crn == <?php echo $crn; ?> )
 		{
 			atLeastOneQuiz = "yes";
-			var qid = JSObjQuizzes.quizzes[key].id;
-			var qname = JSObjQuizzes.quizzes[key].name;
+			var qid = JSONQuizzes.quizzes[key].id;
+			var qname = JSONQuizzes.quizzes[key].name;
 			// create a radio button for each quiz
 			document.write("<input type='radio' name=");
 			document.write("'quizID'");
@@ -33,6 +37,7 @@ $crn = $_SESSION['crn']; // need the crn to be a session var reaching this page
 			// text to draw to screen is qname
 		}
 	}
+	
 	if(atLeastOneQuiz == "yes")
 	{
 		// submit button
@@ -46,4 +51,6 @@ $crn = $_SESSION['crn']; // need the crn to be a session var reaching this page
 	// end of html form
 	document.write("</form>");
 </script>
+
+</body>
 </html>

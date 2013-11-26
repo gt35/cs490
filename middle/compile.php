@@ -12,12 +12,20 @@ $methodBody , user writes the actual method code, user input, no need to store i
 + any more I need to submit a score/grade
 */
 //debugging set vars locally
-$input = "(2,2) (1,3) (8,7)";
+/*$input = "(2,2) (1,3) (8,7)";
 $output = "4,4,15";
 $type = "int";
 $name = "add";
 $arguments = "int arg1, int arg2";
-$methodBody = "int sum = arg1 + arg2; return sum;";
+$methodBody = "int sum = arg1 + arg2; return sum;";*/
+
+$input = $_POST['input'];
+$output = $_POST['output'];
+$type = $_POST['type'];
+$name = $_POST['name'];
+$arguments = $_POST['arguments'];
+$methodBody = $_POST['code'];
+
 ini_set('display_errors',1); 
 
 error_reporting(E_ALL);

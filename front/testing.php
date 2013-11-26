@@ -151,7 +151,9 @@ for(var key in JSONOBJECT.questions){
         
         </script>
       <textarea name="code" cols="150" rows="15" class="textbox" id="code">
-      <script>
+ </textarea>
+      <br>
+       <script>
       document.write("<input type='hidden' name='type' value=" + type  + ">");
       document.write("<input type='hidden' name='input' value=" + inputVar  + ">");
       document.write("<input type='hidden' name='output' value=" + outputVar  + ">");
@@ -159,9 +161,6 @@ for(var key in JSONOBJECT.questions){
       document.write("<input type='hidden' name='name' value=" + name  + ">");
       document.write("<input type='hidden' name='weight' value=" + weight  + ">");
       </script>
-
- </textarea>
-      <br>
                 <input name="submitanswer" type="submit" class="button" id="submitanswer" value="Submit your Answer">
                 <br><br><br><br><br><br>
     </div>

@@ -1,5 +1,5 @@
 <?php
-session_start()
+session_start();
 $_SESSION['attempted'] = "yes"; // use this to kmow student has attempted exam
 ?>
 
@@ -103,10 +103,10 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
 <?php
 	include('../resources/header.php');
-	$url = $gt35."/back/back.php?f=gradeQuiz&quizID=1&u=".$_GET['u'];
+	$url = $gt35."/back/back.php?f=gradeQuiz";
 	
 	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";
-	$arr = array('quizID'=>$_GET['quizID']);
+	$arr = array('quizID'=>$_SESSION['quizID']);
 	//echo back('getQuizQuestions',$arr,$gt35);
 	?>
 

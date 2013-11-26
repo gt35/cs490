@@ -7,12 +7,22 @@
 	include('trig.php');
 ?>
 <!--test template
-</form><hr>
+</form><hr>Test functionName
 <form id="test1form" action="test.php?f=funcName" method="post">
 	<input type="text" name="varname" placeholder="varname"/>
 	<input type="submit" value="test" name="assntest" style="padding:5px;"/>
 </form><hr>
 -->
+</form><hr>Test getQuizzes
+<form id="test1form" action="test.php?f=getQuizzes" method="post">
+	<input type="text" name="crn" placeholder="crn"/>
+	<input type="submit" value="test" name="assntest" style="padding:5px;"/>
+</form><hr>
+</form><hr>Test allQuestions
+<form id="test1form" action="test.php?f=allQuestions" method="post">
+	<input type="text" name="crn" placeholder="crn"/>
+	<input type="submit" value="test" name="assntest" style="padding:5px;"/>
+</form><hr>
 </form><hr>Test insertOpenEnded
 <form id="test1form" action="test.php?f=insertOpenEnded" method="post">
 	<input type="text" name="questionText" placeholder="text"/>
@@ -58,6 +68,10 @@
 </form><hr>
 <hr>Test getQuizQuestions:
 <form id="test1form" action="test.php?f=getQuizQuestions" method="post">
+	<input type="text" name="quizID" placeholder="put quizID here"/>
+	<input type="submit" value="test" name="assntest" style="padding:5px;"/>
+</form><hr><hr>Test getOpenEnded:
+<form id="test1form" action="test.php?f=getOpenEnded" method="post">
 	<input type="text" name="quizID" placeholder="put quizID here"/>
 	<input type="submit" value="test" name="assntest" style="padding:5px;"/>
 </form><hr>

@@ -1,11 +1,11 @@
 <?php
 session_start();
 include("../resources/header.php");
-
-$url = "http://web.njit.edu/~gt35/cs490/back/back.php?f=getCourses";
-
-$crn = $_POST['dropDown'];
+print_r($_SESSION);
+//print_r($_POST);
+//$crn = $_POST['dropDown'];
 //$_SESSION['crnNumber'] = $crn;
+//$_SESSION['ucid']=$_POST['ucid'];
 
 
 ?>
@@ -204,6 +204,12 @@ a:active {
                <!-- Javascript begins here -->
 
 				<script type="text/javascript">
+					<?php
+		$gt35 = 'http://web.njit.edu/~gt35/cs490'; //back
+		$arr = array('username'=>$_SESSION['ucid']);
+		$obj = back('getCourses',$arr,$gt35);
+		//echo $JSONOutput;
+	?>
 				document.write ('<p><span id="date-time">', new Date().toLocaleString(), '<\/span><\/p>')
 					if (document.getElementById) onload = function () {
 						setInterval ("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
@@ -211,7 +217,7 @@ a:active {
 				</script>
 
 				<script type="text/javascript">
-					var JSONObject = {"classes":[{"name":"CS490","fullName":"SOFTWARE ENGINEERING","crn":"1"},{"name":"CS435","fullName":"ADV DATA STRUCTURES","crn":"2"},{"name":"MATH346","fullName":"MATHEMATICS OF FINANCE","crn":"4"},{"name":"IT266","fullName":"GAME MOD DEVELOPMENT","crn":"3"}]};
+					var JSONObject = <?php echo $obj;?>;
 
 					document.write("<form action='professorWelcome2.php' method='post' name='dropDown' class='dropDown'>");		// ** MAKE SURE TO ADD FORM BEGINNING
 					document.write('<select name="dropDown" class="dropDownBox" id="dropDown">');		// the select form header

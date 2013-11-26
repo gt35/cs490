@@ -4,8 +4,10 @@
 	
 	if($_POST['username'] === "teacher")
 	{
-		header('Location: http://web.njit.edu/~ac422/cs490/front/professorWelcome.php');
-		 $profURL = "http://web.njit.edu/~ac422/cs490/front/professorWelcome.php";
+		session_start();
+		$_SESSION['ucid'] = 'teacher';
+		header('Location: http://web.njit.edu/~gt35/cs490/front/professorWelcome.php');
+		 $profURL = "http://web.njit.edu/~gt35/cs490/front/professorWelcome.php";
 		 //open connection
 		 $ch = curl_init();
 		 //set the url
@@ -57,12 +59,14 @@
 	
 		if (strpos($result,'Object moved') !== false) 
 		{
-			header('Location: http://web.njit.edu/~ac422/cs490/front/studentWelcome.php');
+			session_start();
+                        $_SESSION['ucid'] = $username;
+			header('Location: http://web.njit.edu/~gt35/cs490/front/studentWelcome.php');
 			$value = "getCourses";
 			$postval = array('username'=> $_POST['username']);
 			$data = getJSON($value,$postval,$gt35);
 			//echo 'authenticated';
-			$welcomeURL = 'http://web.njit.edu/~ac422/cs490/front/studentWelcome.php';
+			$welcomeURL = 'http://web.njit.edu/~gt35/cs490/front/studentWelcome.php';
 			//open connection
 			$ch = curl_init();
 			//set the url

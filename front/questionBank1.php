@@ -112,13 +112,22 @@ Welcome to the Question Bank, Professor!
 
 <div id = "wrapper" width = 100%; style="margin: 0 auto;">
 <div id = questionbank; style="padding-top:50px;  padding-left:60px; width:100%; margin: 0 auto;" > 
+<?php
+	include('../resources/header.php');
+	$url = $gt35."/back/back.php?f=saveOpenEnded";
+	//$url = 'test.php';
+	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";  
 
+?>
 
 	<script type="text/javascript">
-		document.write("<form action='http://web.njit.edu/~gt35/back/back.php?f=saveOpenEnded' method='post' name='form1' class='submitquestions'>");
-
-
-			var JSONOBJECT = {"openEnded":[{"id":"9","text":"Write a function to add two integers","type":"int","input":"(2,2)(3,3)(4,4)","output":"4,6,8","args":"int arg1, int arg2","name":"addd","weight":"10"},{"id":"34","text":"Write a function to subtract two integers","type":"double","input":"(2,2)(3,3)(4,4)","output":"4,6,8","name":"add","weight":"10"},{"id":"35","text":"Write a function to multiply two integers","type":"boolean","input":"(2,2)(3,3)(4,4)","output":"4,6,8","args":"int arg1, int arg2","name":"subtract","weight":"10"},{"id":"40","text":"Write a function to take the average of two integers","type":"int","input":"(2,2)(3,3)(4,4)","output":"4,6,8","args":"int arg1, int arg2","name":"add","weight":"100"}]};
+		<?php
+		$gt35 = 'http://web.njit.edu/~gt35/cs490'; //back
+		$crn = array('crn'=>$_SESSION['crnNumber']);
+		$obj = back('allOpenEnded',$crn,$gt35);
+		//echo $JSONOutput;
+	?>
+			var JSONOBJECT = <?php echo $obj; ?>;
 
 				for(var key in JSONOBJECT.openEnded){
 				
@@ -150,7 +159,8 @@ Welcome to the Question Bank, Professor!
 					document.write(name + "<br><br>");
 				}
 						
-		
+		var quizID = <?php echo $_SESSION['quizID'];?>;
+								document.write("<input type='hidden' name='quizID' value="+quizID+">");
 		document.write("<input type='submit' value='Submit Questions'> </form> <br><br><br>");
 	</script>
 

@@ -1,4 +1,4 @@
-<?php
+ <?php
 	ini_set('display_errors',1); 
 	error_reporting(E_ALL);
 	//FUNCTIONS
@@ -27,7 +27,14 @@
 		'".$a."','".$b."','".$c."','".$d."',
 		'".$ans."','".$weight."')";
 		runQuery($q);
-	}	
+	}
+	function makeQuiz($crn,$name){
+		//insert question into DB
+		$q = "INSERT INTO quizzes(crn,name)
+		VALUES('".$crn."',
+		'".$name."')";
+		runQuery($q);
+	}
 	function insertOpenEnded($text,$type,$input,$output,$args,$name,$crn){
 		//insert question into DB
 		$q = "INSERT INTO openEnded(text,type,input,output,arguments,name,crn)
@@ -127,6 +134,13 @@
 		return $result;
 		//return getElements($q);
 	}
+	function getOpenEnded($qID){
+		$q = "SELECT * FROM openEnded
+		WHERE id = '".$qID."'";
+		$result = runQuery($q);
+		return $result;
+		//return getElements($q);
+	}
 	function allQuestions($crn){
 		//function to get all questions in bank 
 		//useful for displaying question bank
@@ -156,12 +170,17 @@
 		VALUES('".$qIDstr."','".$crn."')";
 		runQuery($q);
 	}
-	function saveOpenEnded($qID,$qIDstr){
+		function updateQuiz($qIDstr,$quizID){
+		//saves string of selected questions into db
+		//example string 1.5.7.10.22.34.100
+		$q = "UPDATE quizzes SET qIDstr = '".$qIDstr."' WHERE id = '".$quizID."'";
+		//correct way
+		runQuery($q);
+	}
+	function saveOpenEnded($qIDstr,$quizID){//also updates
 		//saves string of selected OE questions into db
 		//example string 1.5.7.10.22.34.100
-		//$q = "UPDATE quizzes SET qIDstr ='".$qIDstr."'WHERE id = 1 ";
-		//correct way
-		$q ="UPDATE quizzes SET oIDstr = '".$qIDstr."' WHERE id = '".$qID."'";
+		$q ="UPDATE quizzes SET oIDstr = '".$qIDstr."' WHERE id = '".$quizID."'";
 		runQuery($q);
 	}
 	
@@ -212,7 +231,7 @@
 			$id .= $x;//append next number to id
 			if($next == '.'){//checks for id separator or end of str
 				$i++;
-				$q[] = mysqli_fetch_assoc(getQuestion($id));// insert question into array
+				$q[] = mysqli_fetch_assoc(getOpenEnded($id));// insert question into array
 				$id = '';//reset id to null
 			}
 			$i++;

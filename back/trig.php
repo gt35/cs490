@@ -15,6 +15,10 @@
 			$classes = array('classes'=>$c);
 			echo json_encode($classes);
 		}
+		if($f == 'makeQuiz'){
+			makeQuiz($_POST['crn'],$_POST['name']);
+			
+		}
 		if($f == 'getStudentAnsStr'){
 			print_r(getStudentAnsStr($_POST['quizID'],$_POST['username']));
 			
@@ -39,18 +43,27 @@
 		}
 		if($f == 'saveQuiz'){
 			$x = convertQuizStr($_POST);
-			saveQuiz($x);
+			saveQuiz($x,$_POST['crn']);
+			//echo 'quiz saved!';
+		}
+		if($f == 'updateQuiz'){
+			$x = convertQuizStr($_POST);
+			updateQuiz($x,$_POST['quizID']);
 			//echo 'quiz saved!';
 		}
 		if($f == 'saveOpenEnded'){
 			$x = convertQuizStr($_POST);
-			saveOpenEnded($x);
+			saveOpenEnded($x,$_POST['quizID']);
 			//echo 'quiz saved!';
 		}
 		if($f == 'getQuizzes'){
+			$c = array();
 			$x = getQuizzes($_POST['crn']);
-			$row = mysqli_fetch_assoc($x);
-			echo json_encode(array('quizzes'=>$row));
+			while($row = mysqli_fetch_assoc($x)){
+				$c[] = $row;
+			}
+			$quizzes = array('quizzes'=>$c);
+			echo json_encode($quizzes);
 		}
 		if($f == 'getQuizQuestions'){
 			//print_r(getQuizQuestions($_POST['quizID']));

@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+print_r($_SESSION);
+//print session_id();
 ?>
 
 <html>
@@ -117,7 +118,8 @@ Welcome to the Question Bank, Professor!
 
 <?php
 	include('../resources/header.php');
-	$url = $gt35."/back/back.php?f=saveQuiz";
+	$url = $gt35."/back/back.php?f=updateQuiz";
+	//$url = 'test.php';
 	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";  
 
 ?>
@@ -127,9 +129,9 @@ Welcome to the Question Bank, Professor!
 	
 	<?php
 		$gt35 = 'http://web.njit.edu/~gt35/cs490'; //back
-		$crn = $_SESSION['crnNumber'];
+		$crn = array('crn'=>$_SESSION['crnNumber']);
 		$JSONOutput = back('allQuestions',$crn,$gt35);
-		echo $JSONOutput;
+		//echo $JSONOutput;
 	?>
 	
 	var JSONQuestions = <?php echo $JSONOutput; ?>;
@@ -160,7 +162,8 @@ for(var key in JSONQuestions.questions){
  	document.write("d" + ". ");						//gives the "d. " before each answer for d
  	document.write(d + "<br><br>");
 }
-
+var quizID = <?php echo $_SESSION['quizID'];?>;
+								document.write("<input type='hidden' name='quizID' value="+quizID+">");//additional info
 document.write("<input type='submit' value='Submit Questions'> </form> <br><br><br><br><br>");
 
 </script>

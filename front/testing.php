@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 ?>
@@ -105,29 +106,21 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
     <center>
     	
-        <p>Open Ended portion of the exam: You will have 3 minutes to complete this.</p>
+        <p>Coding portion of the exam.</p>
         
     </center>
   
 </div>
 
-<div id = "wrapper" width = 100%; style="margin: 0 auto;">
-<center><div class="text" id = div1; style="padding-top:50px; width:100%; margin: 0 auto;" > <?php
-	include('../resources/header.php');
-	$url = $gt35."/back/back.php?f=gradeQuiz";
-	
-	echo "<form action='$url' method='post' name='form1' class='submitquestions'>";
-	$arr = array('quizID'=>$_SESSION['quizID']);
-	echo back('getOpenEnded',$arr,$gt35);
-	?>
-
- </div></center>
 <div id = div2; style="padding-top:180px; width:100%; margin: 0 auto;" > 
   <form name="form2" method="post" action="http://web.njit.edu/~jdr22/cs490/middle/compile.php">
     <label for="code"></label><div align="center">
 		<script>
     var JSONOBJECT = <?php 
-	echo back('getOpenEnded',$arr,$gt35);?>;
+	include('../resources/header.php');
+	$arr = array('quizID'=>$_SESSION['quizID']);
+	echo back('getOpenEnded',$arr,$gt35);
+	?>;
 
 
 

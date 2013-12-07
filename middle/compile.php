@@ -1,40 +1,34 @@
 <?php
+//set the following to properly display php error output
+//ini_set('display_errors',1); 
+//error_reporting(E_ALL);
+
+
 include('../resources/header.php');
 session_start();
+
 // incoming data to this script
 /*
 $input , input test cases stored in DB, extracted by JSON previous page
 $output ,matching output for test cases, stored in DB, extracted by JSON previous page
-$type , primitive java datatype, stored in DB, extracted by JSON previous page
 $name , name of the method, stored in DB, extracted by JSON previous page
-$arguments , name of method's arguments,  stored in DB, extracted by JSON previous page
-$methodBody , user writes the actual method code, user input, no need to store in DB, POST'ed or SESSION'ed from prev page
-
-+ any more I need to submit a score/grade
+$studentMethod, the users writes public static, return type, method name, arguments, and function body
 */
+
 //debugging set vars locally
-/*$input = "(2,2) (1,3) (8,7)";
-$output = "4,4,15";
-$type = "int";
-$name = "add";
-$arguments = "int arg1, int arg2";
-$methodBody = "int sum = arg1 + arg2; return sum;";*/
+//$input = "(2,2) (1,3) (8,7)";
+//$output = "4,4,15";
+//$name = "add";
+//$studentMethod = " no no noooo not in my house public static int add(int arg1, int arg2){return arg1 + arg2;}";
 
 $input = $_POST['input'];
-echo "Raw input POST var".$input."<br><br>";
 $output = $_POST['output'];
-$type = $_POST['type'];
 $name = $_POST['name'];
-$arguments = $_POST['arguments'];
-$methodBody = $_POST['code'];
-
-//ini_set('display_errors',1); 
-
-//error_reporting(E_ALL);
+$studentMethod = $_POST['code'];
 
 // input parser
 $inputArray = explode(" ", $input );
-// print the input
+// print the input for debugging
 //foreach($inputArray as $value)
 //{
 //	echo $value."<br>";
@@ -42,34 +36,26 @@ $inputArray = explode(" ", $input );
 
 // output parser
 $outputArray = explode("," , $output);
-// print the output
+// print the output for debugging
 //foreach($outputArray as $value)
 //{
 //	echo $value."<br>";
 //}
 
-// number of cases to check
-$count = count($inputArray);
-
 // actual testing code
 $casesString = "";
-for($i = 0; $i <count($inputArray); ++$i)
+for($i = 0; $i < count($inputArray); ++$i)
 {
-		$casesString = $casesString."if( ".$name.$inputArray[$i]."!=".$outputArray[$i].'){ System.out.println("Wrong");}';
+		$casesString = $casesString."if( ".$name.$inputArray[$i]."!=".$outputArray[$i].'){ System.out.println("Wrong'.$i.'");}';
 }
-
-//echo $casesString;
 
 // name of the file I want to write to
 $file = '/afs/cad.njit.edu/u/j/d/jdr22/public_html/cs490/middle/write/JavaCode.java';
 
-// debugging
-//echo "The name of the file was: $file <br><br> ";
-
 //what I want to actually write to file
 $fileContent = "\n 
 public class JavaCode \n
-{\n public static $type $name ( $arguments ){ $methodBody }
+{\n $studentMethod
     public static void main (String[] args) \n
 	{
         $casesString
@@ -79,77 +65,102 @@ public class JavaCode \n
 //debugging
 //echo "The file contents we want to write:<br> $fileContent <br><br> ";
 
-
 // write content to file
 $return = file_put_contents($file, $fileContent);
 
-//debugging
-//if($return === FALSE)
-//{
-//echo "Write to file failed.<br><br>";
-//echo "return contents: $return <br><br>";
-//}
-//debugging
-//actual file contents
-//$actualFileContents = file_get_contents($file);
-//echo "<br><br> $actualFileContents <br><br>";
+$sample = shell_exec('cd write && javac JavaCode.java && java JavaCode && echo "compiled"');
 
-// debugging
-//echo "<br>";
-//echo exec('whoami');
-//echo "<br>";
-//echo exec('pwd');
-//echo "<br>";
-$sample = shell_exec('cd write && pwd && javac JavaCode.java && java JavaCode');
 // use shell_exec to return string to variable
 //echo "Sample is ".$sample."<br><br>";
 
-if(strpos($sample,"Wrong") )
+$points = 100;
+if(strpos($sample,"compiled")!== false)
 {
-$points = '10';
-//echo "Student got the question wrong";
-$arr = array(
+	//echo "Code compiled succesfully";
+	$OansStr = "C";
+	for($i = 0; $i < count($inputArray); ++$i)
+	{
+		if( strpos($sample, "Wrong".$i) !== false )
+		{
+			$OansStr = $OansStr.",W";
+			$points = $points - ( 100 / (count($inputArray)+1) );
+		}
+		else
+		{
+			$OansStr = $OansStr.",C";
+		}
+	}
+	
+	$openEndedArray = array(
+	'ucid' => $_SESSION['ucid'],
+    'quizID' => $_SESSION['quizID'],
+	'str' => $OansStr
+	);
+	back('insertStudentOAnsStr', $openEndedArray, $gt35);
+	//echo "<br>The open ended answer string is: $OansStr <br>";
+	
+	$arr = array(
     'ucid' => $_SESSION['ucid'],
     'quizID' => $_SESSION['quizID'],
 	'points' => $points,
 	'crn' => $_SESSION['crnNumber']
-);
-back('subtractPoints',$arr, $gt35);
-$username = $_SESSION['ucid'];
-echo "<html>
-			<form id='form' action='http://web.njit.edu/~gt35/cs490/front/studentWelcome.php' method='POST'>
-			<input type='hidden' name='ucid' value='$username'>
-			</form>
-			<script>
-				document.getElementById(\"form\").submit();
-			</script>
-			</html>";
-			
-			
+	);
+	back('addPoints',$arr, $gt35);
+	//echo "You got a $points on the open ended section.";
+	
+	$arr2 = array(
+	'ucid' => $_SESSION['ucid'],
+    'quizID' => $_SESSION['quizID'],
+	'crn' => $_SESSION['crnNumber']
+	);
+	back('regrade',$arr2, $gt35);
+	
+	
+
 }
 else
 {
-//echo "Student got the question right";
-$username = $_SESSION['ucid'];
-echo "<html>
+	//echo "Code compilation failed";
+	$OansStr = "W";
+	$points = $points - ( 100 / (count($inputArray) +1) );
+	for($i = 0; $i < count($inputArray); ++$i)
+	{
+		$OansStr = $OansStr.",W";
+		$points = $points - ( 100 / (count($inputArray) +1) );
+	}
+	
+	$openEndedArray = array(
+	'ucid' => $_SESSION['ucid'],
+    'quizID' => $_SESSION['quizID'],
+	'str' => $OansStr
+	);
+	back('insertStudentOAnsStr', $openEndedArray, $gt35);
+	//echo "The open ended answer string is: ".$OansStr;
+	
+	$arr = array(
+    'ucid' => $_SESSION['ucid'],
+    'quizID' => $_SESSION['quizID'],
+	'points' => $points,
+	'crn' => $_SESSION['crnNumber']
+	);
+	back('addPoints',$arr, $gt35);
+	//echo "You got a $points on the open ended section.";
+	
+	$arr2 = array(
+	'ucid' => $_SESSION['ucid'],
+    'quizID' => $_SESSION['quizID'],
+	'crn' => $_SESSION['crnNumber']
+	);
+	back('regrade',$arr2, $gt35);
+
+}
+$ucid =  $_SESSION['ucid'];
+echo "      <html>
 			<form id='form' action='http://web.njit.edu/~gt35/cs490/front/studentWelcome.php' method='POST'>
-			<input type='hidden' name='ucid' value='$username'>
+			<input type='hidden' name='ucid' value='$ucid'>
 			</form>
 			<script>
 				document.getElementById(\"form\").submit();
 			</script>
 			</html>";
-}
-
-echo "<br>";
-//echo exec('pwd');
-//$output = shell_exec('javac');
-//echo "the output is: $output  <br><br>";
-
-//compile code
-//echo exec('javac http://web.njit.edu/~jdr22/cs490/middle/write/JavaCode.java -d http://web.njit.edu/~jdr22/cs490/middle/write/JavaCode.java');
-/*
-// run code
-echo exec(java  http://web.njit.edu/~jdr22/cs490/middle/write/JavaCode Hello ); 
-*/
 ?>

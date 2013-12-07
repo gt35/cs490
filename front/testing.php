@@ -124,23 +124,31 @@ function MM_effectAppearFade(targetElement, duration, from, to, toggle)
 
 
 
-for(var key in JSONOBJECT.questions){
+	for(var key in JSONOBJECT.questions)
+	{
 
-	var id = JSONOBJECT.questions[key].id;
+		var id = JSONOBJECT.questions[key].id;
+		var text = JSONOBJECT.questions[key].text;
+		var inputVar = JSONOBJECT.questions[key].input;
+		var outputVar = JSONOBJECT.questions[key].output;
+		var name = JSONOBJECT.questions[key].name;
+		var weight = JSONOBJECT.questions[key].weight;
 
- 	var text = JSONOBJECT.questions[key].text;
-
- 	document.write(text + "<br><br>");	
+		document.write(text + "<br><br>");	
  	
-}
+	}
 
-
-	
 	</script>
-      <textarea name="code" cols="150" rows="15" class="textbox" id="code">
+    <textarea name="code" cols="150" rows="15" class="textbox" id="code">
 
- </textarea>
+	</textarea>
       <br>
+	  <script>
+		document.write("<input type='hidden' name='input' value='" + inputVar + "'>");
+		document.write("<input type='hidden' name='output' value='" + outputVar + "'>");
+		document.write("<input type='hidden' name='name' value='" + name + "'>");
+		document.write("<input type='hidden' name='weight' value='" + weight + "'>");
+		</script>
 		<input name="submitanswer" type="submit" class="button" id="submitanswer" value="Submit your Answer">
 		<br><br><br><br><br><br>
     </div>
